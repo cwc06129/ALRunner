@@ -1,0 +1,7 @@
+// interest variables
+calca input 0,9
+calcb input 0,9
+calcc input 0,9
+determinant state -324,81
+>> key : result state 0,2
+>> func : main

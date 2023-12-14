@@ -1,0 +1,11 @@
+amount input 0,2000
+timer state 0,5
+item_num input 0,3
+buttonPress input 0,1
+// key interest variable
+>> key : machine_state state 0,4
+// target function name
+>> func : main
+//enumeration
+>> enum : machine_state {Initial, Insert, ButtonEnabled, Emit, Return}
+>> enum : item {COKE, PEPSI, WATER, JUICE}

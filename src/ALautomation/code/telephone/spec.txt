@@ -1,0 +1,10 @@
+teleevent input 0,6
+dialDigit input 0,5
+timer state 0,6
+// key interest variable
+>> key : telestate state 0,8
+// target function name
+>> func : main
+//enumeration
+>> enum : telestate {Idle, DialTone, TimeOut, Dialing, Connecting, Invalid, Busy, Ringing, Talking}
+>> enum : teleevent {None, CallerLift, busy, Connected, CalleeAnswer, CallerHangUp, DialButton}

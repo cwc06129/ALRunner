@@ -1,0 +1,8 @@
+trianglea input 1,9
+triangleb input 1,9
+trianglec input 1,9
+result output 0,2
+// key interest variable
+>> key : match state 0,6
+// target function name
+>> func : triangle

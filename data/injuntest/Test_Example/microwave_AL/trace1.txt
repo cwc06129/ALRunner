@@ -1,0 +1,117 @@
+types
+Door_closed rt_input.event:E rt_state.micro_time:N
+Door_open rt_input.event:E rt_state.micro_time:N
+Cooking rt_input.event:E rt_state.micro_time:N
+Cooking_complete rt_input.event:E rt_state.micro_time:N
+Cooking_interrupt rt_input.event:E rt_state.micro_time:N
+trace
+Door_closed Close 0
+Door_closed Time_select 0
+Cooking Time_select 8
+Cooking Open 7
+Cooking_interrupt Time_select 6
+Cooking_interrupt Open 6
+Cooking_interrupt Open 6
+Cooking_interrupt Close 6
+Cooking NONE 6
+Cooking NONE 5
+trace
+Door_closed Close 0
+Door_closed Close 0
+Door_closed Open 0
+Door_open Open 0
+Door_open Close 0
+Door_closed Time_select 0
+Cooking Open 1
+Cooking_complete Time_select 0
+Cooking_complete Time_select 0
+Cooking_complete Close 0
+trace
+Door_closed Time_select 0
+Cooking Time_select 1
+Cooking_complete NONE 0
+Cooking_complete Open 0
+Cooking_complete Close 0
+Cooking_complete Time_select 0
+Cooking_complete Close 0
+Cooking_complete NONE 0
+Cooking_complete Open 0
+Cooking_complete NONE 0
+trace
+Door_closed Time_select 0
+Cooking NONE 1
+Cooking_complete NONE 0
+Cooking_complete Open 0
+Cooking_complete Time_select 0
+Cooking_complete NONE 0
+Cooking_complete Open 0
+Cooking_complete Open 0
+Cooking_complete Open 0
+Cooking_complete Close 0
+trace
+Door_closed Close 0
+Door_closed NONE 0
+Door_closed NONE 0
+Door_closed Close 0
+Door_closed Open 0
+Door_open NONE 0
+Door_open NONE 0
+Door_open Close 0
+Door_closed Open 0
+Door_open Open 0
+trace
+Door_closed Close 0
+Door_closed Open 0
+Door_open Close 0
+Door_closed Time_select 0
+Cooking Time_select 3
+Cooking NONE 2
+Cooking Time_select 1
+Cooking_complete Open 0
+Cooking_complete Time_select 0
+Cooking_complete NONE 0
+trace
+Door_closed NONE 0
+Door_closed Close 0
+Door_closed Time_select 0
+Cooking Time_select 3
+Cooking Time_select 2
+Cooking Close 1
+Cooking_complete Time_select 0
+Cooking_complete Open 0
+Cooking_complete Open 0
+Cooking_complete Close 0
+trace
+Door_closed NONE 0
+Door_closed NONE 0
+Door_closed Close 0
+Door_closed Open 0
+Door_open NONE 0
+Door_open NONE 0
+Door_open NONE 0
+Door_open Open 0
+Door_open Open 0
+Door_open Time_select 0
+trace
+Door_closed Close 0
+Door_closed NONE 0
+Door_closed Time_select 0
+Cooking Time_select 6
+Cooking Open 5
+Cooking_interrupt NONE 4
+Cooking_interrupt Close 4
+Cooking Close 4
+Cooking Close 3
+Cooking Close 2
+trace
+Door_closed NONE 0
+Door_closed Time_select 0
+Cooking Close 2
+Cooking Open 1
+Cooking_complete Open 0
+Cooking_complete Time_select 0
+Cooking_complete Close 0
+Cooking_complete Open 0
+Cooking_complete Close 0
+Cooking_complete NONE 0
+trace

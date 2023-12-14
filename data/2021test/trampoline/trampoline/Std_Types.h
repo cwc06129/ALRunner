@@ -1,0 +1,31 @@
+typedef unsigned char u8;
+typedef signed char s8;
+typedef unsigned short u16;
+typedef signed short s16;
+typedef unsigned long u32;
+typedef signed long s32;
+typedef unsigned char boolean;
+typedef s8 sint8;
+typedef u8 uint8;
+typedef s16 sint16;
+typedef u16 uint16;
+typedef s32 sint32;
+typedef u32 uint32;
+typedef s8 sint8_least;
+typedef u8 uint8_least;
+typedef s16 sint16_least;
+typedef u16 uint16_least;
+typedef s32 sint32_least;
+typedef u32 uint32_least;
+typedef float float32;
+typedef double float64;
+typedef u8 Std_ReturnType;
+typedef struct
+{
+    uint16 vendorID;
+    uint8 moduleID;
+    uint8 sw_major_version;
+    uint8 sw_minor_version;
+    uint8 sw_patch_version;
+} Std_VersionInfoType;
+typedef unsigned char StatusType;

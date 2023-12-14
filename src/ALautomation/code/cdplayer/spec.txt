@@ -1,0 +1,11 @@
+// interest variables
+was_ModeManager state 0,2
+temporalCounter_i1 state 0,205
+RadioReq input 0,3
+DiscEject input 0,1
+// key interest variable
+>> key : is_ModeManager state 0,2
+// target function name
+>> func : main
+// enumeration
+>> enum : RadioReq {OFF, CD, FM, AM}

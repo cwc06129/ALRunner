@@ -1,0 +1,65 @@
+# =======================================================
+# ===================== My Job ==========================
+# =======================================================
+use Understand;
+$db = Understand::open("iftest.c.udb");
+foreach $func ($db->ents("function")) {
+  # 1. select all functions
+  if ($func->kindname ne "Function") {
+    next;
+  }
+  print "=============",$func->longname(),", ",$func->kindname(),"===============\n";
+
+  # 2. split each node delimiting ";" symbol
+  @nodelist = split(';', $func->freetext("CGraph"));
+  my $id = 1; # first node id
+
+  # 3. split each field in the node delimiting "," symbol
+  foreach $fields (@nodelist) {
+    my %node = {}; # perl dictionary
+    # each node has its kind start
+    ($node{kind}, $node{sline}, $node{scol}, $node{eline}, $node{ecol},
+        $node{endstr}, my @children) = split(",", $fields);
+    $node{children} = @children;
+    # 3.1. print node info, ex) ID:2 K:35::610(8)~610(31)    N:3   CONTENT: static int integral(Init)[] = 0;
+    print "ID:",$id,"\tK:",$node{kind}, "::",$node{sline}, "(",$node{scol},")~", $node{eline}, "(",$node{ecol},")",
+        $node{endstr},"\t\tN:",(join ",", @children);
+
+    # 3.2. print statement info, iterate under code location
+    print "\t\tCONTENT: ";
+    # get lexeme using code location
+    my $l = $func->lexer()->lexeme($node{sline}, $node{scol});
+    # iteratively gets lexemes until code region of the node fully explored
+    while (defined $l) {
+      if ( !($l->line_end() <= $node{eline} && $l->column_end() <= $node{ecol}) ) {
+        last;
+      }
+      print $l->text();
+      # kindname = Use, Define, Type ...
+      if ( defined $l->ref() ) {
+        print "(", $l->ref()->kindname(), ")";
+      }
+      # token = Whitespace, Keyword, Identifier ...
+      print "[", $l->token(), "]";
+
+      $l = $l->next();
+    }
+    print "\n";
+    # 3.3. next node
+    $id++;
+  }
+
+  print "\n";
+
+  # ========= How to use Lexer & Lexeme =========
+  # print $func->lexer()->first()->text();
+  # print "\n";
+  # print $func->lexer()->lines();
+  # print "\n";
+  # print $func->lexer()->lexemes(1, 633);
+  # print "\n";
+  # foreach $l ($func->lexer()->lexemes(1, 633)) {
+  #   print $l->text(), "::";
+  # }
+  # test_entity($func);
+}

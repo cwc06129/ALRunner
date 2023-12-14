@@ -1,0 +1,33 @@
+// interest variables
+packetStartByte state 0,255
+packetEndByte state 0,255
+contentsStartByte state 0,255
+contentsEndByte state 0,255
+message input 0,255 arr,30
+>> constant : PACKAGE_START_BYTE_VALUE, PACKAGE_END_BYTE_VALUE, CONTENTS_START_BYTE_VALUE, CONTENTS_END_BYTE_VALUE
+// key interest variable
+>> key : fail_status state 0,2
+// target function name
+>> func : main
+// enumeration
+>> enum : fail_status {NO_ACTIVE, FAIL, SUCCESS}
+// struct
+>> struct name : _EQMSProtocol EQMSProtocol
+>> struct element start
+unsigned char PACKAGE_START_BYTE;
+unsigned char PACKAGE_END_BYTE;
+unsigned char CONTENTS_START_BYTE;
+unsigned char CONTENTS_END_BYTE;
+unsigned char EQMS_TYPE_ACC;
+unsigned char EQMS_TYPE_ENV;
+unsigned char EQMS_TYPE_AIR;
+unsigned char* _buf;
+size_t _buf_length;
+int _parse_stage;
+int _current_packet_usim;
+int _expected_length;
+int _inbound_bytes;
+int _processed_msg;
+int _failed;
+int _success;
+>> struct element finish

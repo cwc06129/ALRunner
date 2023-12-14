@@ -1,0 +1,7 @@
+// interest variables
+n1 input 2,9
+n2 input 2,9
+// key interest variable
+>> key : result output 1,9
+// target function name
+>> func : main

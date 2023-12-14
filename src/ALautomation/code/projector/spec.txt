@@ -1,0 +1,9 @@
+// interest variables
+power_switch input 0,1
+counter state 0,3
+// key interest variable
+>> key : mode state 0,3
+// target function name
+>> func : main
+//enumeration
+>> enum : mode {OFF, READY_TO_ON, READY_TO_OFF, ON}

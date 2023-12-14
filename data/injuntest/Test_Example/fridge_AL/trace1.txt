@@ -1,0 +1,117 @@
+types
+Initial rt_input.button:S rt_input.emode:E rt_input.door:E rt_state.temp:N
+Normal_Mode rt_input.button:S rt_input.emode:E rt_input.door:E rt_state.temp:N
+Door_Open_Mode rt_input.button:S rt_input.emode:E rt_input.door:E rt_state.temp:N
+Energy_Safe_Mode rt_input.button:S rt_input.emode:E rt_input.door:E rt_state.temp:N
+OFF rt_input.button:S rt_input.emode:E rt_input.door:E rt_state.temp:N
+trace
+Initial true EmodeON Open 0
+Normal_Mode true EmodeON Close 0
+OFF true EmodeON DoorNONE 0
+OFF true EmodeON Close 0
+OFF true EmodeOFF Open 0
+OFF false EmodeON DoorNONE 0
+OFF true EmodeON Open 0
+OFF true EmodeOFF DoorNONE 0
+OFF false EmodeOFF Close 0
+OFF true EmodeON Open 0
+trace
+Initial false EmodeOFF DoorNONE 0
+Initial true EmodeNONE Close 0
+Normal_Mode true EmodeON Open 0
+OFF true EmodeON DoorNONE 0
+OFF false EmodeNONE Close 0
+OFF false EmodeON Close 0
+OFF true EmodeOFF DoorNONE 0
+OFF false EmodeON Open 0
+OFF false EmodeOFF DoorNONE 0
+OFF true EmodeOFF Open 0
+trace
+Initial false EmodeNONE DoorNONE 0
+Initial true EmodeNONE Close 0
+Normal_Mode true EmodeON DoorNONE 0
+OFF true EmodeOFF DoorNONE 0
+OFF false EmodeNONE DoorNONE 0
+OFF false EmodeNONE Close 0
+OFF true EmodeNONE Close 0
+OFF false EmodeNONE DoorNONE 0
+OFF true EmodeOFF DoorNONE 0
+OFF true EmodeOFF Close 0
+trace
+Initial false EmodeNONE DoorNONE 0
+Initial false EmodeNONE Open 0
+Initial false EmodeON DoorNONE 0
+Initial false EmodeOFF DoorNONE 0
+Initial true EmodeOFF Open 0
+Normal_Mode false EmodeNONE Close 0
+Normal_Mode false EmodeNONE DoorNONE 0
+Normal_Mode false EmodeOFF Open 0
+Door_Open_Mode true EmodeOFF Open 0
+Door_Open_Mode true EmodeOFF Open 1
+trace
+Initial true EmodeON DoorNONE 0
+Normal_Mode true EmodeON DoorNONE 0
+OFF true EmodeNONE Close 0
+OFF false EmodeON DoorNONE 0
+OFF false EmodeOFF DoorNONE 0
+OFF true EmodeOFF Open 0
+OFF false EmodeOFF Close 0
+OFF true EmodeNONE Close 0
+OFF false EmodeNONE Close 0
+OFF true EmodeNONE Open 0
+trace
+Initial false EmodeON DoorNONE 0
+Initial true EmodeOFF Close 0
+Normal_Mode true EmodeOFF DoorNONE 0
+OFF false EmodeOFF Close 0
+OFF true EmodeOFF Close 0
+OFF false EmodeOFF Open 0
+OFF false EmodeOFF Open 0
+OFF false EmodeON Close 0
+OFF true EmodeNONE DoorNONE 0
+OFF false EmodeON DoorNONE 0
+trace
+Initial true EmodeON Close 0
+Normal_Mode true EmodeON Close 0
+OFF false EmodeNONE Open 0
+OFF true EmodeON Close 0
+OFF false EmodeNONE Open 0
+OFF true EmodeOFF DoorNONE 0
+OFF false EmodeNONE DoorNONE 0
+OFF true EmodeON Open 0
+OFF false EmodeOFF Close 0
+OFF false EmodeON Open 0
+trace
+Initial true EmodeNONE DoorNONE 0
+Normal_Mode false EmodeNONE Close 0
+Normal_Mode false EmodeOFF DoorNONE 0
+Normal_Mode true EmodeOFF Close 0
+OFF false EmodeON Close 0
+OFF true EmodeNONE Close 0
+OFF true EmodeOFF Open 0
+OFF false EmodeOFF DoorNONE 0
+OFF true EmodeON DoorNONE 0
+OFF true EmodeON Close 0
+trace
+Initial true EmodeOFF DoorNONE 0
+Normal_Mode false EmodeNONE Open 0
+Door_Open_Mode true EmodeON Open 0
+Door_Open_Mode true EmodeON DoorNONE 1
+Door_Open_Mode false EmodeON DoorNONE 2
+Door_Open_Mode false EmodeOFF DoorNONE 3
+Door_Open_Mode false EmodeON DoorNONE 4
+Door_Open_Mode false EmodeOFF Close 5
+Normal_Mode false EmodeNONE Close 6
+Normal_Mode false EmodeNONE DoorNONE 5
+trace
+Initial false EmodeNONE DoorNONE 0
+Initial false EmodeOFF DoorNONE 0
+Initial true EmodeOFF Close 0
+Normal_Mode false EmodeOFF DoorNONE 0
+Normal_Mode false EmodeON Close 0
+Energy_Safe_Mode true EmodeNONE Open 0
+OFF true EmodeOFF Open 0
+OFF false EmodeNONE Open 0
+OFF false EmodeOFF Open 0
+OFF false EmodeOFF Close 0
+trace

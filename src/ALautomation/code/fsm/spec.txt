@@ -1,0 +1,11 @@
+// interest variables
+motor_speed_status state 0,3
+motor_speed state -2,23 arr,2 
+obsDistance input 0,25 arr,4
+// key interest variable
+>> key : motor_direction_status state 0,2
+// target function name
+>> func : determineSpeed
+// enumeration
+>> enum : motor_direction_status {Straight, Turn_left, Turn_right}
+>> enum : motor_speed_status {Stop, Slow_speed, Midium_speed, Fast_speed}

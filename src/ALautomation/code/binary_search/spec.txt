@@ -1,0 +1,8 @@
+// interest variables
+arr input 0,4 arr,5
+key input 0,4
+// key interest variable
+>> key : result output -1,4
+// target function name
+>> func : main
+// enumeration

@@ -1,0 +1,116 @@
+types
+OFF rt_input.power_switch:S rt_state.counter:N
+READY_TO_OFF rt_input.power_switch:S rt_state.counter:N
+READY_TO_ON rt_input.power_switch:S rt_state.counter:N
+ON rt_input.power_switch:S rt_state.counter:N
+trace
+OFF false 0
+OFF false 0
+OFF true 0
+READY_TO_ON true 0
+READY_TO_ON true 1
+READY_TO_ON true 2
+READY_TO_ON false 3
+ON true 4
+READY_TO_OFF false 4
+OFF false 5
+trace
+OFF false 0
+OFF true 0
+READY_TO_ON true 0
+READY_TO_ON false 1
+READY_TO_ON false 2
+READY_TO_ON false 3
+ON false 4
+ON true 0
+READY_TO_OFF false 0
+READY_TO_OFF true 1
+trace
+OFF false 0
+OFF false 0
+OFF false 0
+OFF false 0
+OFF false 0
+OFF false 0
+OFF true 0
+READY_TO_ON true 0
+READY_TO_ON false 1
+READY_TO_ON false 2
+trace
+OFF false 0
+OFF false 0
+OFF true 0
+READY_TO_ON true 0
+READY_TO_ON false 1
+READY_TO_ON false 2
+READY_TO_ON true 3
+READY_TO_ON false 4
+ON true 5
+READY_TO_OFF true 5
+trace
+OFF false 0
+OFF true 0
+READY_TO_ON false 0
+READY_TO_ON true 1
+READY_TO_ON true 2
+READY_TO_ON false 3
+ON false 4
+ON true 0
+READY_TO_OFF false 0
+READY_TO_OFF false 1
+trace
+OFF false 0
+OFF false 0
+OFF true 0
+READY_TO_ON false 0
+READY_TO_ON false 1
+READY_TO_ON true 2
+READY_TO_ON true 3
+READY_TO_ON true 4
+READY_TO_ON true 5
+READY_TO_ON true 6
+trace
+OFF false 0
+OFF true 0
+READY_TO_ON false 0
+READY_TO_ON true 1
+READY_TO_ON false 2
+READY_TO_ON false 3
+ON true 4
+READY_TO_OFF true 4
+READY_TO_OFF false 5
+OFF false 6
+trace
+OFF false 0
+OFF true 0
+READY_TO_ON true 0
+READY_TO_ON true 1
+READY_TO_ON false 2
+READY_TO_ON true 3
+READY_TO_ON true 4
+READY_TO_ON false 5
+ON false 6
+ON true 0
+trace
+OFF true 0
+READY_TO_ON true 0
+READY_TO_ON false 1
+READY_TO_ON false 2
+READY_TO_ON true 3
+READY_TO_ON false 4
+ON true 5
+READY_TO_OFF false 5
+OFF false 6
+OFF false 0
+trace
+OFF false 0
+OFF false 0
+OFF true 0
+READY_TO_ON false 0
+READY_TO_ON true 1
+READY_TO_ON false 2
+READY_TO_ON false 3
+ON false 4
+ON true 0
+READY_TO_OFF false 0
+trace

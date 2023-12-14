@@ -1,0 +1,11 @@
+// interest variables
+micro_time input 0,9
+event input 0,7
+micro_time state 0,9
+// key interest variable
+>> key : micro_state state 0,6
+// target function name
+>> func : main
+//enumeration
+>> enum : micro_state {Waiting, FullPower, HalfPower, SetTime, Enabled, Disabled, Operation}
+>> enum : event {None, full, half, openDoor, cancel, timer, closeDoor, StartPress}

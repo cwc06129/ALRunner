@@ -1,0 +1,115 @@
+#include "implementation.oil"
+
+CPU ATMEL_AT91SAM7S256
+{
+  OS LEJOS_OSEK
+  {
+    STATUS = EXTENDED;
+    STARTUPHOOK = FALSE;
+    ERRORHOOK = FALSE;
+    SHUTDOWNHOOK = FALSE;
+    PRETASKHOOK = FALSE;
+    POSTTASKHOOK = FALSE;
+    USEGETSERVICEID = FALSE;
+    USEPARAMETERACCESS = FALSE;
+    USERESSCHEDULER = FALSE;
+  };
+
+  /* Definition of application mode */
+  APPMODE appmode1{};
+
+  /*Definition of resource*/
+  RESOURCE dataMutex
+  {
+	RESOURCEPROPERTY = STANDARD;
+  };
+
+  COUNTER SysTimerCnt
+  {
+    MINCYCLE = 1;
+    MAXALLOWEDVALUE = 10000;
+    TICKSPERBASE = 1; /* One tick is equal to 1msec */
+  };
+
+
+  ALARM cyclic_acquisition_alarm_30ms
+  {
+    COUNTER = SysTimerCnt;
+    ACTION = ACTIVATETASK
+    {
+        TASK = AcquisitionTask;
+    };
+    
+  AUTOSTART = TRUE
+    {
+        ALARMTIME = 1;
+        CYCLETIME = 30;
+        APPMODE = appmode1;
+    };
+  };
+  
+  TASK AcquisitionTask
+  {
+    AUTOSTART = FALSE;
+    PRIORITY = 3; /* Smaller value means lower priority */
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    RESOURCE = dataMutex;
+    STACKSIZE = 512; /* Stack size */
+  };
+  
+  
+  ALARM cyclic_control_alarm_50ms
+  {
+    COUNTER = SysTimerCnt;
+    ACTION = ACTIVATETASK
+    {
+        TASK = ControlTask;
+    };
+    
+  AUTOSTART = TRUE
+    {
+        ALARMTIME = 1;
+        CYCLETIME = 50;
+        APPMODE = appmode1;
+    };
+  };  
+  TASK ControlTask
+  {
+    AUTOSTART = TRUE
+    {
+    APPMODE = appmode1;
+    };
+    PRIORITY = 2; /* Smaller value means lower priority */
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    RESOURCE = dataMutex;
+    STACKSIZE = 512; /* Stack size */
+  };
+
+
+  ALARM cyclic_display_alarm_100ms
+  {
+    COUNTER = SysTimerCnt;
+    ACTION = ACTIVATETASK
+    {
+        TASK = DisplayTask;
+    };
+    
+  AUTOSTART = TRUE
+    {
+        ALARMTIME = 1;
+        CYCLETIME = 100;
+        APPMODE = appmode1;
+    };
+  };
+  
+  TASK DisplayTask
+  {
+    AUTOSTART = FALSE;
+    PRIORITY = 1; /* Smaller value means lower priority */
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    STACKSIZE = 512; /* Stack size */
+  };
+};

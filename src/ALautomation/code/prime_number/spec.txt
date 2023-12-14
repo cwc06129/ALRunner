@@ -1,0 +1,6 @@
+// interest variables
+n input 1,10
+// key interest variable
+>> key : result state 0,1
+// target function
+>> func : main

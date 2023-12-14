@@ -1,0 +1,16 @@
+currentState state
+motorDirection state
+lastFloorAfterEmergency state
+previousMainFloor state
+orderMatrix state
+orderMatrix input 0,1
+currentFloorLocation input -1,3
+// key interest variable
+>> key : previousState state
+// target function name
+>> func : stateController
+// trace print count
+>> trace_m : 10
+>> trace_n : 10
+>> unwind : 5
+>> k-ind : 10

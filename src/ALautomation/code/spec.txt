@@ -1,0 +1,13 @@
+trianglea input 1,9
+triangleb input 1,9
+trianglec input 1,9
+result output
+// key interest variable
+>> key : match state
+// target function name
+>> func : triangle
+// trace print count
+>> trace_m : 10
+>> trace_n : 10
+>> unwind : 5
+>> k-ind : 10

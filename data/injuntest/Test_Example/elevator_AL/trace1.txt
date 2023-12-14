@@ -1,0 +1,117 @@
+types
+INIT rt_state.currentState:E rt_state.motorDirection:N rt_state.previousMainFloor:N rt_state.lastFloorAfterEmergency:N rt_output.door_lamp:N rt_output.stop_lamp:N rt_input.currentFloorLocation:N rt_input.stopSignal:N rt_input.orderMatrix_0_0:N rt_input.orderMatrix_0_1:N rt_input.orderMatrix_0_2:N rt_input.orderMatrix_0_3:N rt_input.orderMatrix_1_0:N rt_input.orderMatrix_1_1:N rt_input.orderMatrix_1_2:N rt_input.orderMatrix_1_3:N rt_input.orderMatrix_2_0:N rt_input.orderMatrix_2_1:N rt_input.orderMatrix_2_2:N rt_input.orderMatrix_2_3:N
+IDLE rt_state.currentState:E rt_state.motorDirection:N rt_state.previousMainFloor:N rt_state.lastFloorAfterEmergency:N rt_output.door_lamp:N rt_output.stop_lamp:N rt_input.currentFloorLocation:N rt_input.stopSignal:N rt_input.orderMatrix_0_0:N rt_input.orderMatrix_0_1:N rt_input.orderMatrix_0_2:N rt_input.orderMatrix_0_3:N rt_input.orderMatrix_1_0:N rt_input.orderMatrix_1_1:N rt_input.orderMatrix_1_2:N rt_input.orderMatrix_1_3:N rt_input.orderMatrix_2_0:N rt_input.orderMatrix_2_1:N rt_input.orderMatrix_2_2:N rt_input.orderMatrix_2_3:N
+RUN rt_state.currentState:E rt_state.motorDirection:N rt_state.previousMainFloor:N rt_state.lastFloorAfterEmergency:N rt_output.door_lamp:N rt_output.stop_lamp:N rt_input.currentFloorLocation:N rt_input.stopSignal:N rt_input.orderMatrix_0_0:N rt_input.orderMatrix_0_1:N rt_input.orderMatrix_0_2:N rt_input.orderMatrix_0_3:N rt_input.orderMatrix_1_0:N rt_input.orderMatrix_1_1:N rt_input.orderMatrix_1_2:N rt_input.orderMatrix_1_3:N rt_input.orderMatrix_2_0:N rt_input.orderMatrix_2_1:N rt_input.orderMatrix_2_2:N rt_input.orderMatrix_2_3:N
+STOP rt_state.currentState:E rt_state.motorDirection:N rt_state.previousMainFloor:N rt_state.lastFloorAfterEmergency:N rt_output.door_lamp:N rt_output.stop_lamp:N rt_input.currentFloorLocation:N rt_input.stopSignal:N rt_input.orderMatrix_0_0:N rt_input.orderMatrix_0_1:N rt_input.orderMatrix_0_2:N rt_input.orderMatrix_0_3:N rt_input.orderMatrix_1_0:N rt_input.orderMatrix_1_1:N rt_input.orderMatrix_1_2:N rt_input.orderMatrix_1_3:N rt_input.orderMatrix_2_0:N rt_input.orderMatrix_2_1:N rt_input.orderMatrix_2_2:N rt_input.orderMatrix_2_3:N
+EMERGENCY rt_state.currentState:E rt_state.motorDirection:N rt_state.previousMainFloor:N rt_state.lastFloorAfterEmergency:N rt_output.door_lamp:N rt_output.stop_lamp:N rt_input.currentFloorLocation:N rt_input.stopSignal:N rt_input.orderMatrix_0_0:N rt_input.orderMatrix_0_1:N rt_input.orderMatrix_0_2:N rt_input.orderMatrix_0_3:N rt_input.orderMatrix_1_0:N rt_input.orderMatrix_1_1:N rt_input.orderMatrix_1_2:N rt_input.orderMatrix_1_3:N rt_input.orderMatrix_2_0:N rt_input.orderMatrix_2_1:N rt_input.orderMatrix_2_2:N rt_input.orderMatrix_2_3:N
+trace
+IDLE IDLE 0 -1 -1 0 0 1 0 1 1 1 0 1 0 1 1 0 1 1 0
+RUN IDLE -1 1 -1 0 0 1 1 1 1 1 0 1 1 1 1 0 1 0 0
+IDLE EMERGENCY -1 1 1 0 1 0 0 0 0 0 1 1 1 1 0 1 0 1 1
+RUN EMERGENCY 1 1 1 0 1 3 1 1 1 0 0 0 1 0 1 1 0 0 1
+STOP STOP 1 1 -1 1 0 3 1 0 1 0 0 1 0 1 0 1 0 0 0
+IDLE IDLE 0 3 3 1 1 3 1 0 1 1 1 1 1 0 1 1 0 1 0
+IDLE EMERGENCY -1 3 3 1 1 1 0 1 0 0 1 1 0 1 1 0 0 1 1
+RUN EMERGENCY -1 3 3 1 1 2 1 0 0 1 0 0 1 1 1 0 1 0 1
+STOP STOP -1 3 -1 1 0 -1 0 1 0 1 1 0 1 0 0 0 0 1 0
+STOP STOP -1 3 -1 1 0 1 1 0 1 0 0 1 0 0 1 1 1 0 1
+trace
+IDLE IDLE 0 -1 -1 0 0 0 1 1 1 0 0 1 1 1 0 1 0 0 1
+IDLE EMERGENCY 1 0 0 0 1 0 1 1 0 1 1 1 0 1 1 0 1 0 1
+STOP STOP 1 0 0 1 0 2 0 0 0 0 1 1 0 0 0 0 1 0 1
+STOP STOP 0 0 0 1 0 3 1 0 1 1 1 0 1 1 1 1 0 0 1
+IDLE IDLE 0 0 0 1 1 -1 1 0 1 0 0 1 0 0 0 0 0 0 0
+IDLE EMERGENCY -1 0 0 1 1 2 0 1 1 1 1 0 1 1 0 0 0 0 1
+RUN EMERGENCY 1 0 0 1 1 3 1 0 0 1 0 1 1 0 0 1 0 0 0
+STOP STOP 1 0 -1 1 0 -1 0 0 0 0 0 1 1 1 1 0 0 0 0
+STOP STOP 1 0 -1 1 0 2 0 1 1 0 1 1 0 1 1 1 0 1 1
+STOP STOP 0 2 -1 1 0 2 1 1 1 1 1 1 1 1 0 0 1 1 1
+trace
+IDLE IDLE 0 -1 -1 0 0 0 1 1 0 1 1 1 0 0 0 0 0 1 1
+IDLE EMERGENCY 1 0 0 0 1 0 0 0 0 1 1 1 0 1 0 1 0 0 1
+RUN EMERGENCY 1 0 0 0 1 0 0 0 1 1 0 1 1 1 0 1 1 0 1
+STOP EMERGENCY 1 0 -1 0 1 3 0 0 1 1 1 0 0 0 1 0 1 0 1
+STOP EMERGENCY 0 3 -1 0 1 3 0 0 1 0 1 0 0 1 1 1 0 1 0
+STOP EMERGENCY 0 3 -1 0 1 3 0 1 1 0 1 0 1 0 0 1 1 0 1
+STOP EMERGENCY 0 3 -1 0 1 3 1 0 0 0 0 0 1 1 0 1 0 0 0
+STOP STOP 0 3 -1 1 0 3 0 0 0 1 1 1 1 0 1 0 1 0 1
+STOP STOP 0 3 -1 1 0 2 1 0 0 0 0 1 0 1 1 1 0 1 0
+IDLE IDLE 0 2 2 1 1 0 0 0 1 1 0 1 0 1 0 0 0 0 0
+trace
+IDLE IDLE 0 -1 -1 0 0 0 1 0 1 0 0 1 0 1 0 0 0 1 0
+IDLE EMERGENCY 1 0 0 0 1 0 1 0 1 0 1 1 1 1 0 0 1 1 0
+STOP STOP 1 0 0 1 0 -1 0 0 0 1 0 1 1 1 0 1 0 1 1
+STOP STOP 0 0 0 1 0 2 0 1 0 1 0 0 0 1 1 1 0 1 1
+STOP STOP 0 0 0 1 0 1 1 1 0 1 0 0 0 0 1 1 1 0 0
+IDLE IDLE 0 0 0 1 1 0 0 0 1 1 1 0 1 1 0 1 0 1 0
+RUN IDLE 1 0 0 1 1 1 1 0 0 1 1 1 0 1 1 1 0 1 0
+IDLE EMERGENCY 1 0 0 1 1 1 1 1 1 0 1 0 1 0 0 0 0 0 1
+STOP STOP 1 0 0 1 0 3 1 0 1 0 0 0 1 1 1 1 1 0 0
+IDLE IDLE 0 0 0 1 1 -1 1 1 0 0 0 1 0 1 0 0 1 0 0
+trace
+IDLE IDLE 0 -1 -1 0 0 3 1 0 0 0 0 1 0 0 1 1 1 0 1
+IDLE EMERGENCY -1 3 3 0 1 -1 0 1 1 0 0 0 1 0 1 1 1 1 1
+RUN EMERGENCY -1 3 3 0 1 -1 0 0 0 1 0 0 1 0 0 0 0 1 1
+STOP EMERGENCY -1 3 -1 0 1 -1 0 0 0 1 0 1 1 0 1 0 1 1 0
+STOP EMERGENCY -1 3 -1 0 1 3 0 1 1 0 1 0 1 1 0 1 1 0 1
+STOP EMERGENCY 0 3 -1 0 1 3 1 0 1 0 1 1 1 1 0 0 1 0 1
+STOP STOP 0 3 -1 1 0 2 1 1 1 1 0 0 0 0 0 1 1 1 0
+IDLE IDLE 0 2 2 1 1 -1 1 1 0 1 0 1 1 1 0 0 0 1 1
+IDLE EMERGENCY -1 2 2 1 1 -1 1 0 0 0 1 1 1 1 1 1 1 0 1
+IDLE IDLE -1 2 2 0 0 1 1 1 0 0 1 0 0 1 0 1 0 0 0
+trace
+IDLE IDLE 0 -1 -1 0 0 3 0 1 1 0 1 1 0 0 0 0 1 0 1
+RUN IDLE -1 3 -1 0 0 -1 1 0 0 1 0 0 1 1 0 1 0 0 1
+IDLE EMERGENCY -1 3 3 0 1 2 1 1 0 0 0 1 1 1 1 1 1 1 1
+STOP STOP -1 3 3 1 0 1 0 1 1 1 1 1 0 1 1 0 0 0 1
+STOP STOP 0 3 3 1 0 2 0 0 0 1 1 0 0 1 0 1 0 1 0
+STOP STOP 0 3 3 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0
+STOP STOP 0 3 3 1 0 2 1 1 1 1 0 1 0 1 0 0 1 0 1
+IDLE IDLE 0 3 3 1 1 -1 0 0 1 1 0 1 1 1 0 1 1 1 1
+RUN IDLE -1 3 3 1 1 2 0 1 0 0 0 1 1 0 0 0 0 0 0
+RUN IDLE -1 3 -1 1 1 0 0 0 0 1 0 1 1 0 0 0 1 1 1
+trace
+IDLE IDLE 0 -1 -1 0 0 2 0 0 0 0 1 0 1 0 1 0 0 1 0
+RUN IDLE -1 2 -1 0 0 -1 1 1 1 0 1 0 0 1 1 1 1 0 1
+IDLE EMERGENCY -1 2 2 0 1 2 1 1 0 1 1 0 0 1 0 1 1 1 1
+STOP STOP -1 2 2 1 0 2 1 0 0 1 1 1 1 0 1 1 1 1 0
+IDLE IDLE 0 2 2 1 1 0 1 0 0 0 1 0 1 0 1 1 1 1 0
+IDLE EMERGENCY -1 2 2 1 1 2 0 0 0 0 0 0 1 1 1 0 1 1 0
+RUN EMERGENCY -1 2 2 1 1 1 1 0 0 1 0 0 1 1 0 0 0 1 0
+STOP STOP -1 2 -1 1 0 1 0 0 0 0 0 0 0 0 0 1 1 1 1
+STOP STOP 0 1 -1 1 0 2 0 1 0 0 0 0 1 0 0 0 0 1 1
+STOP STOP 0 2 -1 1 0 1 1 1 1 1 1 1 1 0 1 1 0 1 0
+trace
+IDLE IDLE 0 -1 -1 0 0 1 1 0 0 1 1 1 0 1 1 1 0 0 0
+IDLE EMERGENCY 1 1 1 0 1 2 0 1 0 1 0 1 1 1 1 0 1 0 0
+RUN EMERGENCY -1 1 1 0 1 1 1 0 0 1 0 0 0 0 1 0 1 1 0
+STOP STOP -1 1 -1 1 0 0 0 0 1 0 1 1 1 1 1 0 0 0 1
+STOP STOP 0 0 -1 1 0 -1 1 1 0 0 1 0 1 0 0 0 0 0 0
+IDLE IDLE 0 0 0 1 1 2 1 0 1 0 0 0 0 1 0 1 0 1 0
+IDLE EMERGENCY 1 0 0 1 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1
+STOP STOP 1 0 0 1 0 1 1 0 1 0 0 0 0 1 0 0 0 0 0
+IDLE IDLE 0 0 0 1 1 -1 0 0 0 0 1 1 0 1 0 0 0 1 1
+RUN IDLE 1 0 0 1 1 2 1 1 1 0 1 0 0 1 0 1 0 1 1
+trace
+IDLE IDLE 0 -1 -1 0 0 0 0 1 0 1 1 0 1 0 1 1 1 1 1
+RUN IDLE 1 0 -1 0 0 0 1 1 0 0 0 1 0 1 0 1 0 0 0
+IDLE EMERGENCY 1 0 0 0 1 1 0 1 0 1 1 0 0 0 0 1 1 1 1
+RUN EMERGENCY 1 0 0 0 1 -1 0 0 0 0 1 0 0 1 0 1 0 0 0
+STOP EMERGENCY 1 0 -1 0 1 0 1 0 0 0 1 0 1 0 0 1 1 0 0
+STOP STOP 0 0 -1 1 0 3 1 1 0 1 0 1 1 1 1 1 1 1 0
+IDLE IDLE 0 3 3 1 1 1 0 0 0 0 0 0 0 0 0 1 0 0 0
+RUN IDLE -1 3 3 1 1 3 0 0 1 1 0 0 0 0 1 1 1 0 1
+STOP IDLE -1 3 -1 1 1 2 0 1 0 1 0 0 1 0 1 1 0 1 0
+STOP IDLE 0 2 -1 1 1 3 1 0 0 0 1 0 0 1 0 0 1 1 0
+trace
+IDLE IDLE 0 -1 -1 0 0 0 0 1 1 1 0 1 1 0 1 0 1 0 0
+RUN IDLE 1 0 -1 0 0 3 0 0 0 0 1 1 0 0 1 0 1 1 1
+STOP IDLE 1 3 -1 0 0 1 0 1 0 1 0 1 1 0 0 0 1 0 0
+STOP IDLE 0 1 -1 0 0 0 1 0 1 0 1 0 0 0 1 1 0 0 1
+IDLE EMERGENCY 0 0 0 0 1 3 1 0 1 1 1 1 0 1 1 1 0 1 1
+STOP STOP 1 0 0 1 0 2 1 0 1 0 0 0 0 1 0 1 1 1 0
+IDLE IDLE 0 0 0 1 1 2 1 1 0 0 0 1 1 1 1 0 1 0 1
+IDLE EMERGENCY 1 0 0 1 1 1 1 1 0 1 1 1 1 1 1 1 1 0 0
+STOP STOP 1 0 0 1 0 -1 1 0 0 1 0 0 1 0 0 1 1 1 1
+IDLE IDLE 0 0 0 1 1 2 0 0 1 0 1 1 1 0 0 0 0 0 0
+trace

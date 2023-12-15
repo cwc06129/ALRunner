@@ -22,10 +22,15 @@ Understand 설치 시, path 자동 설정을 체크했다면 별도로 설정할
   * 관심 변수 리스트 (주 관심 변수 제외)
   ```plaintext
   {관심 변수 이름} {input/state/output} {변수 범위(ex. 0,5)}
-  ```
+  ``` 
   * 주 관심 변수
   ```plaintext
   >> key : {주 관심 변수 이름} {state/output} {변수 범위(ex. 0,5)}
+  ```
+  * 관심 변수 및 주 관심 변수가 배열 변수일 경우
+  ```plaintext
+  [관심 변수] {관심 변수 이름} {input/state/output} {변수 범위(ex. 0,5)} arr,{배열 크기}
+  [주 관심 변수] >> key : {주 관심 변수 이름} {state/output} {변수 범위(ex. 0,5)} arr,{배열 크기}
   ``` 
   * 타겟 함수 이름
   ```plaintext

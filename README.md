@@ -103,13 +103,13 @@ Understand 설치 시, path 자동 설정을 체크했다면 별도로 설정할
 
 ## 도구 사용 방법
 ```sh
-// 1. 모든 java 코드를 컴파일한다.
+# 1. 모든 java 코드를 컴파일한다.
 ./compile.sh
 
-// 2. ALRunner.jar의 ModelConstructor를 옵션과 함께 실행시킨다.
+# 2. ALRunner.jar의 ModelConstructor를 옵션과 함께 실행시킨다.
 java -cp ALRunner.jar ALautomation.ModelConstructor {options(Run Configuration 참고)}
 
-// 3. 능동 학습을 실행시킨다.
+# 3. 능동 학습을 실행시킨다.
 ./executeAL.sh
 ```
 

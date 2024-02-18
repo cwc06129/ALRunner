@@ -52,45 +52,46 @@ Understand 설치 시, path 자동 설정을 체크했다면 별도로 설정할
   ```
   
 * spec.txt & global.txt example
- * spec.txt example
-```plaintext
-// interest variables
-packetStartByte state 0,255
-packetEndByte state 0,255
-contentsStartByte state 0,255
-contentsEndByte state 0,255
-message input 0,255 arr,30
->> constant : PACKAGE_START_BYTE_VALUE, PACKAGE_END_BYTE_VALUE, CONTENTS_START_BYTE_VALUE, CONTENTS_END_BYTE_VALUE
-// key interest variable
->> key : fail_status state 0,2
-// target function name
->> func : main
-```
- * global.txt example
-```plaintext
-// enumeration
->> enum : fail_status {NO_ACTIVE, FAIL, SUCCESS}
-// struct
->> struct name : _EQMSProtocol EQMSProtocol
->> struct element start
-unsigned char PACKAGE_START_BYTE;
-unsigned char PACKAGE_END_BYTE;
-unsigned char CONTENTS_START_BYTE;
-unsigned char CONTENTS_END_BYTE;
-unsigned char EQMS_TYPE_ACC;
-unsigned char EQMS_TYPE_ENV;
-unsigned char EQMS_TYPE_AIR;
-unsigned char* _buf;
-size_t _buf_length;
-int _parse_stage;
-int _current_packet_usim;
-int _expected_length;
-int _inbound_bytes;
-int _processed_msg;
-int _failed;
-int _success;
->> struct element finish
-```
+  * spec.txt example
+  ```plaintext
+  // interest variables
+  packetStartByte state 0,255
+  packetEndByte state 0,255
+  contentsStartByte state 0,255
+  contentsEndByte state 0,255
+  message input 0,255 arr,30
+  >> constant : PACKAGE_START_BYTE_VALUE, PACKAGE_END_BYTE_VALUE, CONTENTS_START_BYTE_VALUE, CONTENTS_END_BYTE_VALUE
+  // key interest variable
+  >> key : fail_status state 0,2
+  // target function name
+  >> func : main
+  ```
+ 
+  * global.txt example
+  ```plaintext
+  // enumeration
+  >> enum : fail_status {NO_ACTIVE, FAIL, SUCCESS}
+  // struct
+  >> struct name : _EQMSProtocol EQMSProtocol
+  >> struct element start
+  unsigned char PACKAGE_START_BYTE;
+  unsigned char PACKAGE_END_BYTE;
+  unsigned char CONTENTS_START_BYTE;
+  unsigned char CONTENTS_END_BYTE;
+  unsigned char EQMS_TYPE_ACC;
+  unsigned char EQMS_TYPE_ENV;
+  unsigned char EQMS_TYPE_AIR;
+  unsigned char* _buf;
+  size_t _buf_length;
+  int _parse_stage;
+  int _current_packet_usim;
+  int _expected_length;
+  int _inbound_bytes;
+  int _processed_msg;
+  int _failed;
+  int _success;
+  >> struct element finish
+  ```
 
 ## 시스템 output
 * 원본 C 코드 파일이 저장되어 있는 디렉토리에 generate라는 폴더가 생성되고, 해당 폴더 안에 시스템 output이 저장된다.

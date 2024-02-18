@@ -25,7 +25,6 @@ STATE rt_state;
 OUTPUT rt_output;
 
 void * data_bytes;
-EQMSProtocol eqms_protocol;
 int fail = 0;
 int success = 0;
 

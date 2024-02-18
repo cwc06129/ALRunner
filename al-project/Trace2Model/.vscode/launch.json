@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: 현재 파일",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "-i", "trace1.txt",
+                // "-dv", "None counter:N event:E mode:E",
+                // "-dv", "Node_0_4 counter:N event:E mode:E",
+                // "-dv", "Node_0_9 counter:N event:E mode:E",
+                // "-dv", "Node_0_14 counter:N event:E mode:E",
+                // "-dv", "Node_0_21 counter:N event:E mode:E",
+                // "-dv", "Node_0_27 counter:N event:E mode:E",
+                // "-dv", "Node_0_32 counter:N event:E mode:E",
+                // "-dv", "Node_0_40 counter:N event:E mode:E",
+                "-c", "0"
+            ]
+        }
+    ]
+}

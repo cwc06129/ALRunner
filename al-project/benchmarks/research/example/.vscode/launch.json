@@ -1,0 +1,112 @@
+{
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            // run.py
+            "args": ["1", "load"]
+            
+            // gen_assume_assert_from_model.py
+            // "args": ["./model1.txt", "nil"]
+            // "args": ["./model3.txt", "model2_valid.pkl"]
+
+            // learn_model.py
+            // "args": ["--dfa", "--incr", "-t", "./models", "-i", "./traces/trace1_events.txt", ">", "model1.txt"]
+
+            // syn_next_event.py
+            // "args": ["-i", "traces/trace2.txt"],
+
+            // "args": ["-i", "traces/trace1.txt",
+            //     "-dv", "Node_0_0", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_0_6", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_2_0", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_2_10", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_2_15", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_2_17", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_2_22", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_2_26", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_0", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_35", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_36", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_37", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_39", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_40", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_42", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_44", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_47", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_50", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_52", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_53", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_55", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_57", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_59", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_60", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_62", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_63", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_65", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_66", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_67", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_70", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_72", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_74", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_75", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_77", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_78", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_80", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_82", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_84", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_85", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_87", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_88", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_90", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_92", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_94", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_95", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_97", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_99", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_101", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_102", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_105", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_108", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_110", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_111", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_114", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_116", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_117", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_119", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_121", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_123", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_124", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_128", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_130", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_131", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_136", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_137", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_138", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_140", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_141", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_143", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_148", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_149", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_150", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_152", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_153", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_154", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_156", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_157", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_4_168", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_15_0", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_15_277", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            //     "-dv", "Node_15_278", "call_label:E", "determineSpeed_j_1:N", "zone_0:N", "zone_1:N", "zone_2:N", "zone_3:N", "motor_speed_0:N", "motor_speed_1:N", "obsDistance_0:N", "obsDistance_1:N", "obsDistance_2:N", "obsDistance_3:N",
+            // ]
+        }
+    ]
+}

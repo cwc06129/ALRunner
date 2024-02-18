@@ -1,13 +1,13 @@
-#define TASK(n) void TASK_##n
-#define FUNC(n,m) k n FUNC_##k
-#define BASE_SPEED_S30
-#define BASE_SPEED_M70
-#define SENSOR_P1
-#define MIN_DIST30
-#define SLOW_DIST50
-#define MOTOR_SNXT_PORT_B
-#define MOTOR_LNXT_PORT_C
-#define MOTOR_RNXT_PORT_A
+#define TASK (n) void TASK_##n
+#define FUNC (n,m) k n FUNC_##k
+#define BASE_SPEED_S 30
+#define BASE_SPEED_M 70
+#define SENSOR_P 1
+#define MIN_DIST 30
+#define SLOW_DIST 50
+#define MOTOR_S NXT_PORT_B
+#define MOTOR_L NXT_PORT_C
+#define MOTOR_R NXT_PORT_A
 
 #include <stdbool.h>
 #include <stdlib.h>
@@ -24,7 +24,7 @@ int turnSensor_offset;
 int turnSensor_s_speed;
 int turnSensor_deg;
 int readDistSensor_anglePos;
-int* determineSpeed_obsDistance;
+int* * determineSpeed_obsDistance;
 int determineSpeed_j;
 int determineSpeed_s;
 int turnCar_l;
@@ -32,9 +32,9 @@ int turnCar_r;
 int FUNC_controlTask_i;
 int ANGLE[2] = {-10, 40};
 int zone[4] = {2, 2, 2, 2};
- ecrobot_set_motor_speed_port_id;
- ecrobot_set_motor_speed_speed;
- systick_wait_ms_a;
+unsigned char ecrobot_set_motor_speed_port_id;
+int ecrobot_set_motor_speed_speed;
+int systick_wait_ms_a;
 
 char * motor_direction_status_str[] = {"Straight","Turn_left","Turn_right"};
 char * motor_speed_status_str[] = {"Stop","Slow_speed","Midium_speed","Fast_speed"};
@@ -188,10 +188,10 @@ void TerminateTask() {
 
 
 
-void main() {
-	srand(time(NULL));
-	model_step();
-}
+// void main() {
+// 	srand(time(NULL));
+// 	model_step();
+// }
 
 
 
@@ -221,9 +221,9 @@ void model_initialize() {
 	zone[3] = 2;
 	rt_state.motor_speed[0] = 0;
 	rt_state.motor_speed[1] = 0;
-	ecrobot_set_motor_speed_port_id;
-	ecrobot_set_motor_speed_speed;
-	systick_wait_ms_a;
+	ecrobot_set_motor_speed_port_id = 0;
+	ecrobot_set_motor_speed_speed = 0;
+	systick_wait_ms_a = 0;
 }
 
 

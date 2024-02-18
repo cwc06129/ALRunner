@@ -1088,6 +1088,18 @@ public class ModelConstructor {
                 if ((e.getCode().contains("rt_input.")) || (e.getCode().contains("rt_state."))
                         || (e.getCode().contains("rt_output.")))
                     continue;
+
+                // 2024-02-18(Sun) SoheeJung : if DeclarationStatement contain structure information that is interst variable, then no print.
+                boolean interstStructCheck = false;
+                for (String structName : getStructVarScope().keySet()) {
+                    String tempName = structName.split("\\.")[0];
+                    if(e.getCode().contains(tempName)) {
+                        interstStructCheck = true;
+                        break;
+                    }
+                }
+                if(interstStructCheck) continue;
+
                 // 2023-10-19(Thu) SoheeJung
                 // if Expression's instance is not TypedefExpression and Expression contains
                 // bracketExpression, then print specific position
@@ -4223,21 +4235,21 @@ public class ModelConstructor {
         modelConstructor.parseTxtInfo("./src/ALautomation/code/" + filename + "/global.txt",
                 udbInfoRetriever.getVariables());
 
-        // // 4. make model.h file
-        // // Process of array variable
+        // 4. make model.h file
+        // Process of array variable
         modelConstructor.makeModelHFile(udbInfoRetriever, resultDirPath);
 
-        // // 5. make model.c file
+        // 5. make model.c file
         modelConstructor.makeModelCFile(udbInfoRetriever, numberOfParam, typeOfFunc, defines, resultDirPath);
 
-        // // 6. make make_trace.c file
-        // modelConstructor.makeMakeTraceCFile(udbInfoRetriever.getVariables(), resultDirPath);
+        // 6. make make_trace.c file
+        modelConstructor.makeMakeTraceCFile(udbInfoRetriever.getVariables(), resultDirPath);
 
-        // // 7. make generate_trace.sh
-        // modelConstructor.makeTraceShellFile(srcPath, resultDirPath);
+        // 7. make generate_trace.sh
+        modelConstructor.makeTraceShellFile(srcPath, resultDirPath);
 
-        // // 8. make gen_assume_assert_from_model.py
-        // modelConstructor.makeGenAssumeAssertFromModelPyFile(srcPath, udbInfoRetriever.getVariables(), resultDirPath);
+        // 8. make gen_assume_assert_from_model.py
+        modelConstructor.makeGenAssumeAssertFromModelPyFile(srcPath, udbInfoRetriever.getVariables(), resultDirPath);
     }
 
     // getter & setter

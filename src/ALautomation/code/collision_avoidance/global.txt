@@ -1,0 +1,3 @@
+// enumeration
+>> enum : motor_direction_status {Straight, Turn_left, Turn_right}
+>> enum : motor_speed_status {Stop, Slow_speed, Midium_speed, Fast_speed}

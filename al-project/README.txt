@@ -1,0 +1,1 @@
+label.c로부터 trace를 생성하고, model.c를 manual하게 생성해서 Active Learning을 돌린 디렉토리 (trace 10)

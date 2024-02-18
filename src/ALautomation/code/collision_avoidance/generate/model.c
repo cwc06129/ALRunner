@@ -188,10 +188,10 @@ void TerminateTask() {
 
 
 
-void main() {
-	srand(time(NULL));
-	model_step();
-}
+// void main() {
+// 	srand(time(NULL));
+// 	model_step();
+// }
 
 
 

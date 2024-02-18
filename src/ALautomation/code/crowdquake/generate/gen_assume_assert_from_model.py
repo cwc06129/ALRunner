@@ -24,7 +24,6 @@ def generate_assume_assert(s1_in_p, pred, s2_out_p, assumptions):
 	f.write("#include <stdbool.h> \n")
 	f.write("#include \"model.h\"\n")
 	f.write("#include \"model.c\"\n")
-	f.write("#include \"ecrobot_interface.h\"\n")
 
 	f.write("int main()\n")
 	f.write("{					\n\
@@ -38,23 +37,77 @@ def generate_assume_assert(s1_in_p, pred, s2_out_p, assumptions):
 	## Assume STATE / OUTPUT Define Section
 	f.write("\n\
 	// STATE / OUTPUT assume \n\
-	__CPROVER_assume(prev_state.motor_direction_status >= 0 && prev_state.motor_direction_status <= 2); \n\
-	__CPROVER_assume(prev_state.motor_speed_status >= 0 && prev_state.motor_speed_status <= 3); \n\
-	__CPROVER_assume(prev_state.motor_speed[0] >= -2 && prev_state.motor_speed[0] <= 23); \n\
-	__CPROVER_assume(prev_state.motor_speed[1] >= -2 && prev_state.motor_speed[1] <= 23); \n\
+	__CPROVER_assume(prev_state.fail_status >= 0 && prev_state.fail_status <= 2); \n\
+	__CPROVER_assume(prev_state.packetStartByte >= 0 && prev_state.packetStartByte <= 255); \n\
+	__CPROVER_assume(prev_state.packetEndByte >= 0 && prev_state.packetEndByte <= 255); \n\
+	__CPROVER_assume(prev_state.contentsStartByte >= 0 && prev_state.contentsStartByte <= 255); \n\
+	__CPROVER_assume(prev_state.contentsEndByte >= 0 && prev_state.contentsEndByte <= 255); \n\
+	__CPROVER_assume(prev_state.eqms_protocol._failed >= 0 && prev_state.eqms_protocol._failed <= 1); \n\
 	")
 
 	## Assume INPUT Define Section
 	f.write("\n\
 	// INPUT assume \n\
-	__CPROVER_assume(prev_input.obsDistance[0] >= 0 && prev_input.obsDistance[0] <= 25); \n\
-	__CPROVER_assume(input.obsDistance[0] >= 0 && input.obsDistance[0] <= 25); \n\
-	__CPROVER_assume(prev_input.obsDistance[1] >= 0 && prev_input.obsDistance[1] <= 25); \n\
-	__CPROVER_assume(input.obsDistance[1] >= 0 && input.obsDistance[1] <= 25); \n\
-	__CPROVER_assume(prev_input.obsDistance[2] >= 0 && prev_input.obsDistance[2] <= 25); \n\
-	__CPROVER_assume(input.obsDistance[2] >= 0 && input.obsDistance[2] <= 25); \n\
-	__CPROVER_assume(prev_input.obsDistance[3] >= 0 && prev_input.obsDistance[3] <= 25); \n\
-	__CPROVER_assume(input.obsDistance[3] >= 0 && input.obsDistance[3] <= 25); \n\
+	__CPROVER_assume(prev_input.message[0] >= 0 && prev_input.message[0] <= 255); \n\
+	__CPROVER_assume(input.message[0] >= 0 && input.message[0] <= 255); \n\
+	__CPROVER_assume(prev_input.message[1] >= 0 && prev_input.message[1] <= 255); \n\
+	__CPROVER_assume(input.message[1] >= 0 && input.message[1] <= 255); \n\
+	__CPROVER_assume(prev_input.message[2] >= 0 && prev_input.message[2] <= 255); \n\
+	__CPROVER_assume(input.message[2] >= 0 && input.message[2] <= 255); \n\
+	__CPROVER_assume(prev_input.message[3] >= 0 && prev_input.message[3] <= 255); \n\
+	__CPROVER_assume(input.message[3] >= 0 && input.message[3] <= 255); \n\
+	__CPROVER_assume(prev_input.message[4] >= 0 && prev_input.message[4] <= 255); \n\
+	__CPROVER_assume(input.message[4] >= 0 && input.message[4] <= 255); \n\
+	__CPROVER_assume(prev_input.message[5] >= 0 && prev_input.message[5] <= 255); \n\
+	__CPROVER_assume(input.message[5] >= 0 && input.message[5] <= 255); \n\
+	__CPROVER_assume(prev_input.message[6] >= 0 && prev_input.message[6] <= 255); \n\
+	__CPROVER_assume(input.message[6] >= 0 && input.message[6] <= 255); \n\
+	__CPROVER_assume(prev_input.message[7] >= 0 && prev_input.message[7] <= 255); \n\
+	__CPROVER_assume(input.message[7] >= 0 && input.message[7] <= 255); \n\
+	__CPROVER_assume(prev_input.message[8] >= 0 && prev_input.message[8] <= 255); \n\
+	__CPROVER_assume(input.message[8] >= 0 && input.message[8] <= 255); \n\
+	__CPROVER_assume(prev_input.message[9] >= 0 && prev_input.message[9] <= 255); \n\
+	__CPROVER_assume(input.message[9] >= 0 && input.message[9] <= 255); \n\
+	__CPROVER_assume(prev_input.message[10] >= 0 && prev_input.message[10] <= 255); \n\
+	__CPROVER_assume(input.message[10] >= 0 && input.message[10] <= 255); \n\
+	__CPROVER_assume(prev_input.message[11] >= 0 && prev_input.message[11] <= 255); \n\
+	__CPROVER_assume(input.message[11] >= 0 && input.message[11] <= 255); \n\
+	__CPROVER_assume(prev_input.message[12] >= 0 && prev_input.message[12] <= 255); \n\
+	__CPROVER_assume(input.message[12] >= 0 && input.message[12] <= 255); \n\
+	__CPROVER_assume(prev_input.message[13] >= 0 && prev_input.message[13] <= 255); \n\
+	__CPROVER_assume(input.message[13] >= 0 && input.message[13] <= 255); \n\
+	__CPROVER_assume(prev_input.message[14] >= 0 && prev_input.message[14] <= 255); \n\
+	__CPROVER_assume(input.message[14] >= 0 && input.message[14] <= 255); \n\
+	__CPROVER_assume(prev_input.message[15] >= 0 && prev_input.message[15] <= 255); \n\
+	__CPROVER_assume(input.message[15] >= 0 && input.message[15] <= 255); \n\
+	__CPROVER_assume(prev_input.message[16] >= 0 && prev_input.message[16] <= 255); \n\
+	__CPROVER_assume(input.message[16] >= 0 && input.message[16] <= 255); \n\
+	__CPROVER_assume(prev_input.message[17] >= 0 && prev_input.message[17] <= 255); \n\
+	__CPROVER_assume(input.message[17] >= 0 && input.message[17] <= 255); \n\
+	__CPROVER_assume(prev_input.message[18] >= 0 && prev_input.message[18] <= 255); \n\
+	__CPROVER_assume(input.message[18] >= 0 && input.message[18] <= 255); \n\
+	__CPROVER_assume(prev_input.message[19] >= 0 && prev_input.message[19] <= 255); \n\
+	__CPROVER_assume(input.message[19] >= 0 && input.message[19] <= 255); \n\
+	__CPROVER_assume(prev_input.message[20] >= 0 && prev_input.message[20] <= 255); \n\
+	__CPROVER_assume(input.message[20] >= 0 && input.message[20] <= 255); \n\
+	__CPROVER_assume(prev_input.message[21] >= 0 && prev_input.message[21] <= 255); \n\
+	__CPROVER_assume(input.message[21] >= 0 && input.message[21] <= 255); \n\
+	__CPROVER_assume(prev_input.message[22] >= 0 && prev_input.message[22] <= 255); \n\
+	__CPROVER_assume(input.message[22] >= 0 && input.message[22] <= 255); \n\
+	__CPROVER_assume(prev_input.message[23] >= 0 && prev_input.message[23] <= 255); \n\
+	__CPROVER_assume(input.message[23] >= 0 && input.message[23] <= 255); \n\
+	__CPROVER_assume(prev_input.message[24] >= 0 && prev_input.message[24] <= 255); \n\
+	__CPROVER_assume(input.message[24] >= 0 && input.message[24] <= 255); \n\
+	__CPROVER_assume(prev_input.message[25] >= 0 && prev_input.message[25] <= 255); \n\
+	__CPROVER_assume(input.message[25] >= 0 && input.message[25] <= 255); \n\
+	__CPROVER_assume(prev_input.message[26] >= 0 && prev_input.message[26] <= 255); \n\
+	__CPROVER_assume(input.message[26] >= 0 && input.message[26] <= 255); \n\
+	__CPROVER_assume(prev_input.message[27] >= 0 && prev_input.message[27] <= 255); \n\
+	__CPROVER_assume(input.message[27] >= 0 && input.message[27] <= 255); \n\
+	__CPROVER_assume(prev_input.message[28] >= 0 && prev_input.message[28] <= 255); \n\
+	__CPROVER_assume(input.message[28] >= 0 && input.message[28] <= 255); \n\
+	__CPROVER_assume(prev_input.message[29] >= 0 && prev_input.message[29] <= 255); \n\
+	__CPROVER_assume(input.message[29] >= 0 && input.message[29] <= 255); \n\
 	")
 
 	f.write("\n\
@@ -70,7 +123,7 @@ def generate_assume_assert(s1_in_p, pred, s2_out_p, assumptions):
 
 	if len(p_state_pair) == 1:
 		s1 = p_state_pair[0]
-		v_str = 'state.motor_direction_status == ' + s1
+		v_str = 'state.fail_status == ' + s1
 		f.write("   __CPROVER_assume((" + v_str + "));\n")
 	else:
 		p = p_state_pair[0]
@@ -88,13 +141,13 @@ def generate_assume_assert(s1_in_p, pred, s2_out_p, assumptions):
 			i = targetConvertedNames.index(pred_var)
 			p = p.replace(targetConvertedNames[i], targetNames[i])
 
-		v_str = 'state.motor_direction_status == ' + s1
+		v_str = 'state.fail_status == ' + s1
 		f.write("  __CPROVER_assume((" + v_str + ")  && " + p)
 		if prev_states:
 			f.write(" && (")
 			for i in range(len(prev_states)):
 				s = prev_states[i]
-				v_str = 'state.motor_direction_status == ' + s
+				v_str = 'state.fail_status == ' + s
 				f.write("(" + v_str + ")")
 				if i < len(prev_states)-1:
 					f.write(" || ")
@@ -119,20 +172,46 @@ def generate_assume_assert(s1_in_p, pred, s2_out_p, assumptions):
 							\n\
 		// new input assume		\n\
 		INPUT new_input;	\n\
-		__CPROVER_assume(new_input.obsDistance[0] >= 0 && new_input.obsDistance[0] <= 25); \n\
-		__CPROVER_assume(new_input.obsDistance[1] >= 0 && new_input.obsDistance[1] <= 25); \n\
-		__CPROVER_assume(new_input.obsDistance[2] >= 0 && new_input.obsDistance[2] <= 25); \n\
-		__CPROVER_assume(new_input.obsDistance[3] >= 0 && new_input.obsDistance[3] <= 25); \n\
+		__CPROVER_assume(new_input.message[0] >= 0 && new_input.message[0] <= 255); \n\
+		__CPROVER_assume(new_input.message[1] >= 0 && new_input.message[1] <= 255); \n\
+		__CPROVER_assume(new_input.message[2] >= 0 && new_input.message[2] <= 255); \n\
+		__CPROVER_assume(new_input.message[3] >= 0 && new_input.message[3] <= 255); \n\
+		__CPROVER_assume(new_input.message[4] >= 0 && new_input.message[4] <= 255); \n\
+		__CPROVER_assume(new_input.message[5] >= 0 && new_input.message[5] <= 255); \n\
+		__CPROVER_assume(new_input.message[6] >= 0 && new_input.message[6] <= 255); \n\
+		__CPROVER_assume(new_input.message[7] >= 0 && new_input.message[7] <= 255); \n\
+		__CPROVER_assume(new_input.message[8] >= 0 && new_input.message[8] <= 255); \n\
+		__CPROVER_assume(new_input.message[9] >= 0 && new_input.message[9] <= 255); \n\
+		__CPROVER_assume(new_input.message[10] >= 0 && new_input.message[10] <= 255); \n\
+		__CPROVER_assume(new_input.message[11] >= 0 && new_input.message[11] <= 255); \n\
+		__CPROVER_assume(new_input.message[12] >= 0 && new_input.message[12] <= 255); \n\
+		__CPROVER_assume(new_input.message[13] >= 0 && new_input.message[13] <= 255); \n\
+		__CPROVER_assume(new_input.message[14] >= 0 && new_input.message[14] <= 255); \n\
+		__CPROVER_assume(new_input.message[15] >= 0 && new_input.message[15] <= 255); \n\
+		__CPROVER_assume(new_input.message[16] >= 0 && new_input.message[16] <= 255); \n\
+		__CPROVER_assume(new_input.message[17] >= 0 && new_input.message[17] <= 255); \n\
+		__CPROVER_assume(new_input.message[18] >= 0 && new_input.message[18] <= 255); \n\
+		__CPROVER_assume(new_input.message[19] >= 0 && new_input.message[19] <= 255); \n\
+		__CPROVER_assume(new_input.message[20] >= 0 && new_input.message[20] <= 255); \n\
+		__CPROVER_assume(new_input.message[21] >= 0 && new_input.message[21] <= 255); \n\
+		__CPROVER_assume(new_input.message[22] >= 0 && new_input.message[22] <= 255); \n\
+		__CPROVER_assume(new_input.message[23] >= 0 && new_input.message[23] <= 255); \n\
+		__CPROVER_assume(new_input.message[24] >= 0 && new_input.message[24] <= 255); \n\
+		__CPROVER_assume(new_input.message[25] >= 0 && new_input.message[25] <= 255); \n\
+		__CPROVER_assume(new_input.message[26] >= 0 && new_input.message[26] <= 255); \n\
+		__CPROVER_assume(new_input.message[27] >= 0 && new_input.message[27] <= 255); \n\
+		__CPROVER_assume(new_input.message[28] >= 0 && new_input.message[28] <= 255); \n\
+		__CPROVER_assume(new_input.message[29] >= 0 && new_input.message[29] <= 255); \n\
 		")
 
 	f.write("\t" + "printf(\"OUTPUT: %d " + " ".join(targetExprs) + "\\n\", \n\
-		state.motor_direction_status, " + ", ".join(targetNamesOutput) + ");\n")
+		state.fail_status, " + ", ".join(targetNamesOutput) + ");\n")
 	f.write("\t" + "printf(\"OUTPUT: %d " + " ".join(targetExprs) + "\\n\", \n\
-		rt_state.motor_direction_status, " + ", ".join(targetNamesRTStructed) + ");\n")
-	f.write("\t" + "printf(\"PROP: assert(!(state.motor_direction_status == %d && rt_state.motor_direction_status == %d && " + " && ".join(targetProp) + "));\", \n"\
-		+ "prev_state.motor_direction_status, state.motor_direction_status, " + ", ".join(targetNamesPrevStructed) + ");\n")
-	f.write("\t" + "printf(\"ASSUME: __CPROVER_assume(!(prev_state.motor_direction_status == %d && state.motor_direction_status == %d && " + " && ".join(targetAssume) + "));\", \n"\
-		+ "prev_state.motor_direction_status, state.motor_direction_status, " + ", ".join(targetNamesPrevStructed) + ");\n")
+		rt_state.fail_status, " + ", ".join(targetNamesRTStructed) + ");\n")
+	f.write("\t" + "printf(\"PROP: assert(!(state.fail_status == %d && rt_state.fail_status == %d && " + " && ".join(targetProp) + "));\", \n"\
+		+ "prev_state.fail_status, state.fail_status, " + ", ".join(targetNamesPrevStructed) + ");\n")
+	f.write("\t" + "printf(\"ASSUME: __CPROVER_assume(!(prev_state.fail_status == %d && state.fail_status == %d && " + " && ".join(targetAssume) + "));\", \n"\
+		+ "prev_state.fail_status, state.fail_status, " + ", ".join(targetNamesPrevStructed) + ");\n")
 
 	predicates = {}
 	for pred in s2_out_p:
@@ -154,7 +233,7 @@ def generate_assume_assert(s1_in_p, pred, s2_out_p, assumptions):
 			f.write("		assert(")
 			for i in range(len(next_states_not_pred)):
 				s = next_states_not_pred[i]
-				v_str = 'rt_state.motor_direction_status == ' + s
+				v_str = 'rt_state.fail_status == ' + s
 				f.write("(" + v_str + ")")
 				if i != len(next_states_not_pred)-1:
 					f.write(" || ")
@@ -167,6 +246,7 @@ def generate_assume_assert(s1_in_p, pred, s2_out_p, assumptions):
 			predicates[x] = predicates[x].replace('not ','!')
 			predicates[x] = predicates[x].replace('rt_input','input')
 			predicates[x] = predicates[x].replace('prev_state','state')
+			predicates[x] = predicates[x].replace('rt_state','state')
 
 			## Array interest variable processing (Hyobin)
 			pred_vars = list(np.unique(re.findall(r"[a-zA-Z_][a-zA-Z0-9_]*", predicates[x])))
@@ -176,7 +256,7 @@ def generate_assume_assert(s1_in_p, pred, s2_out_p, assumptions):
 				predicates[x] = predicates[x].replace(targetConvertedNames[i], targetNames[i])
 
 			f.write("		if (" + predicates[x] + ")\n")
-			v_str = 'rt_state.motor_direction_status == ' + x
+			v_str = 'rt_state.fail_status == ' + x
 			f.write("		{	assert(" + v_str + ");\n")
 			f.write("			found = true;}\n")
 
@@ -187,7 +267,7 @@ def generate_assume_assert(s1_in_p, pred, s2_out_p, assumptions):
 			f.write("			assert(")
 			for i in range(len(next_states_not_pred)):
 				s = next_states_not_pred[i]
-				v_str = 'rt_state.motor_direction_status== ' + s
+				v_str = 'rt_state.fail_status== ' + s
 				f.write("(" + v_str + ")")
 				if i != len(next_states_not_pred)-1:
 					f.write(" || ")
@@ -221,8 +301,7 @@ def run_code_proof():
 
 def get_trace():
 	## enumeration variable dictionary definition
-	motor_direction_status_str = ["Straight","Turn_left","Turn_right"]
-	motor_speed_status_str = ["Stop","Slow_speed","Midium_speed","Fast_speed"]
+	fail_status_str = ["NO_ACTIVE","FAIL","SUCCESS"]
 
 	f = open("out_assume_assert.txt",'r')
 	lines = f.readlines()
@@ -239,8 +318,7 @@ def get_trace():
 			temp = line.replace("OUTPUT: ","")
 			temp = [int(x) for x in temp.split()]
 			## enumeration value and string array matching
-			temp[0] = motor_direction_status_str[temp[0]]
-			temp[1] = motor_speed_status_str[temp[1]]
+			temp[0] = fail_status_str[temp[0]]
 			temp = [str(x) for x in temp]
 
 			count = count + 1
@@ -259,7 +337,6 @@ def check_validity_code(prop):
 	f.write("#include <stdbool.h> \n")
 	f.write("#include \"model.h\"\n")
 	f.write("#include \"model.c\"\n")
-	f.write("#include \"ecrobot_interface.h\"\n")
 
 	f.write("int main()\n")
 	f.write("{						\n\
@@ -324,7 +401,6 @@ def gen_check_init_proof(s2_out_p):
 	f.write("#include <stdbool.h> \n")
 	f.write("#include\"model.h\"\n")
 	f.write("#include \"model.c\"\n")
-	f.write("#include \"ecrobot_interface.h\"\n")
 
 	f.write("int main()\n")
 	f.write("{			\n\
@@ -336,14 +412,66 @@ def gen_check_init_proof(s2_out_p):
 
 	f.write("\n\
 	// INPUT assume \n\
-	__CPROVER_assume(prev_input.obsDistance[0] >= 0 && prev_input.obsDistance[0] <= 25); \n\
-	__CPROVER_assume(input.obsDistance[0] >= 0 && input.obsDistance[0] <= 25); \n\
-	__CPROVER_assume(prev_input.obsDistance[1] >= 0 && prev_input.obsDistance[1] <= 25); \n\
-	__CPROVER_assume(input.obsDistance[1] >= 0 && input.obsDistance[1] <= 25); \n\
-	__CPROVER_assume(prev_input.obsDistance[2] >= 0 && prev_input.obsDistance[2] <= 25); \n\
-	__CPROVER_assume(input.obsDistance[2] >= 0 && input.obsDistance[2] <= 25); \n\
-	__CPROVER_assume(prev_input.obsDistance[3] >= 0 && prev_input.obsDistance[3] <= 25); \n\
-	__CPROVER_assume(input.obsDistance[3] >= 0 && input.obsDistance[3] <= 25); \n\
+	__CPROVER_assume(prev_input.message[0] >= 0 && prev_input.message[0] <= 255); \n\
+	__CPROVER_assume(input.message[0] >= 0 && input.message[0] <= 255); \n\
+	__CPROVER_assume(prev_input.message[1] >= 0 && prev_input.message[1] <= 255); \n\
+	__CPROVER_assume(input.message[1] >= 0 && input.message[1] <= 255); \n\
+	__CPROVER_assume(prev_input.message[2] >= 0 && prev_input.message[2] <= 255); \n\
+	__CPROVER_assume(input.message[2] >= 0 && input.message[2] <= 255); \n\
+	__CPROVER_assume(prev_input.message[3] >= 0 && prev_input.message[3] <= 255); \n\
+	__CPROVER_assume(input.message[3] >= 0 && input.message[3] <= 255); \n\
+	__CPROVER_assume(prev_input.message[4] >= 0 && prev_input.message[4] <= 255); \n\
+	__CPROVER_assume(input.message[4] >= 0 && input.message[4] <= 255); \n\
+	__CPROVER_assume(prev_input.message[5] >= 0 && prev_input.message[5] <= 255); \n\
+	__CPROVER_assume(input.message[5] >= 0 && input.message[5] <= 255); \n\
+	__CPROVER_assume(prev_input.message[6] >= 0 && prev_input.message[6] <= 255); \n\
+	__CPROVER_assume(input.message[6] >= 0 && input.message[6] <= 255); \n\
+	__CPROVER_assume(prev_input.message[7] >= 0 && prev_input.message[7] <= 255); \n\
+	__CPROVER_assume(input.message[7] >= 0 && input.message[7] <= 255); \n\
+	__CPROVER_assume(prev_input.message[8] >= 0 && prev_input.message[8] <= 255); \n\
+	__CPROVER_assume(input.message[8] >= 0 && input.message[8] <= 255); \n\
+	__CPROVER_assume(prev_input.message[9] >= 0 && prev_input.message[9] <= 255); \n\
+	__CPROVER_assume(input.message[9] >= 0 && input.message[9] <= 255); \n\
+	__CPROVER_assume(prev_input.message[10] >= 0 && prev_input.message[10] <= 255); \n\
+	__CPROVER_assume(input.message[10] >= 0 && input.message[10] <= 255); \n\
+	__CPROVER_assume(prev_input.message[11] >= 0 && prev_input.message[11] <= 255); \n\
+	__CPROVER_assume(input.message[11] >= 0 && input.message[11] <= 255); \n\
+	__CPROVER_assume(prev_input.message[12] >= 0 && prev_input.message[12] <= 255); \n\
+	__CPROVER_assume(input.message[12] >= 0 && input.message[12] <= 255); \n\
+	__CPROVER_assume(prev_input.message[13] >= 0 && prev_input.message[13] <= 255); \n\
+	__CPROVER_assume(input.message[13] >= 0 && input.message[13] <= 255); \n\
+	__CPROVER_assume(prev_input.message[14] >= 0 && prev_input.message[14] <= 255); \n\
+	__CPROVER_assume(input.message[14] >= 0 && input.message[14] <= 255); \n\
+	__CPROVER_assume(prev_input.message[15] >= 0 && prev_input.message[15] <= 255); \n\
+	__CPROVER_assume(input.message[15] >= 0 && input.message[15] <= 255); \n\
+	__CPROVER_assume(prev_input.message[16] >= 0 && prev_input.message[16] <= 255); \n\
+	__CPROVER_assume(input.message[16] >= 0 && input.message[16] <= 255); \n\
+	__CPROVER_assume(prev_input.message[17] >= 0 && prev_input.message[17] <= 255); \n\
+	__CPROVER_assume(input.message[17] >= 0 && input.message[17] <= 255); \n\
+	__CPROVER_assume(prev_input.message[18] >= 0 && prev_input.message[18] <= 255); \n\
+	__CPROVER_assume(input.message[18] >= 0 && input.message[18] <= 255); \n\
+	__CPROVER_assume(prev_input.message[19] >= 0 && prev_input.message[19] <= 255); \n\
+	__CPROVER_assume(input.message[19] >= 0 && input.message[19] <= 255); \n\
+	__CPROVER_assume(prev_input.message[20] >= 0 && prev_input.message[20] <= 255); \n\
+	__CPROVER_assume(input.message[20] >= 0 && input.message[20] <= 255); \n\
+	__CPROVER_assume(prev_input.message[21] >= 0 && prev_input.message[21] <= 255); \n\
+	__CPROVER_assume(input.message[21] >= 0 && input.message[21] <= 255); \n\
+	__CPROVER_assume(prev_input.message[22] >= 0 && prev_input.message[22] <= 255); \n\
+	__CPROVER_assume(input.message[22] >= 0 && input.message[22] <= 255); \n\
+	__CPROVER_assume(prev_input.message[23] >= 0 && prev_input.message[23] <= 255); \n\
+	__CPROVER_assume(input.message[23] >= 0 && input.message[23] <= 255); \n\
+	__CPROVER_assume(prev_input.message[24] >= 0 && prev_input.message[24] <= 255); \n\
+	__CPROVER_assume(input.message[24] >= 0 && input.message[24] <= 255); \n\
+	__CPROVER_assume(prev_input.message[25] >= 0 && prev_input.message[25] <= 255); \n\
+	__CPROVER_assume(input.message[25] >= 0 && input.message[25] <= 255); \n\
+	__CPROVER_assume(prev_input.message[26] >= 0 && prev_input.message[26] <= 255); \n\
+	__CPROVER_assume(input.message[26] >= 0 && input.message[26] <= 255); \n\
+	__CPROVER_assume(prev_input.message[27] >= 0 && prev_input.message[27] <= 255); \n\
+	__CPROVER_assume(input.message[27] >= 0 && input.message[27] <= 255); \n\
+	__CPROVER_assume(prev_input.message[28] >= 0 && prev_input.message[28] <= 255); \n\
+	__CPROVER_assume(input.message[28] >= 0 && input.message[28] <= 255); \n\
+	__CPROVER_assume(prev_input.message[29] >= 0 && prev_input.message[29] <= 255); \n\
+	__CPROVER_assume(input.message[29] >= 0 && input.message[29] <= 255); \n\
 	")
 
 	f.write("	while(1)			\n\
@@ -357,18 +485,44 @@ def gen_check_init_proof(s2_out_p):
 									\n\
 		// new input assume		\n\
 		INPUT new_input;	\n\
-		__CPROVER_assume(new_input.obsDistance[0] >= 0 && new_input.obsDistance[0] <= 25); \n\
-		__CPROVER_assume(new_input.obsDistance[1] >= 0 && new_input.obsDistance[1] <= 25); \n\
-		__CPROVER_assume(new_input.obsDistance[2] >= 0 && new_input.obsDistance[2] <= 25); \n\
-		__CPROVER_assume(new_input.obsDistance[3] >= 0 && new_input.obsDistance[3] <= 25); \n\
+		__CPROVER_assume(new_input.message[0] >= 0 && new_input.message[0] <= 255); \n\
+		__CPROVER_assume(new_input.message[1] >= 0 && new_input.message[1] <= 255); \n\
+		__CPROVER_assume(new_input.message[2] >= 0 && new_input.message[2] <= 255); \n\
+		__CPROVER_assume(new_input.message[3] >= 0 && new_input.message[3] <= 255); \n\
+		__CPROVER_assume(new_input.message[4] >= 0 && new_input.message[4] <= 255); \n\
+		__CPROVER_assume(new_input.message[5] >= 0 && new_input.message[5] <= 255); \n\
+		__CPROVER_assume(new_input.message[6] >= 0 && new_input.message[6] <= 255); \n\
+		__CPROVER_assume(new_input.message[7] >= 0 && new_input.message[7] <= 255); \n\
+		__CPROVER_assume(new_input.message[8] >= 0 && new_input.message[8] <= 255); \n\
+		__CPROVER_assume(new_input.message[9] >= 0 && new_input.message[9] <= 255); \n\
+		__CPROVER_assume(new_input.message[10] >= 0 && new_input.message[10] <= 255); \n\
+		__CPROVER_assume(new_input.message[11] >= 0 && new_input.message[11] <= 255); \n\
+		__CPROVER_assume(new_input.message[12] >= 0 && new_input.message[12] <= 255); \n\
+		__CPROVER_assume(new_input.message[13] >= 0 && new_input.message[13] <= 255); \n\
+		__CPROVER_assume(new_input.message[14] >= 0 && new_input.message[14] <= 255); \n\
+		__CPROVER_assume(new_input.message[15] >= 0 && new_input.message[15] <= 255); \n\
+		__CPROVER_assume(new_input.message[16] >= 0 && new_input.message[16] <= 255); \n\
+		__CPROVER_assume(new_input.message[17] >= 0 && new_input.message[17] <= 255); \n\
+		__CPROVER_assume(new_input.message[18] >= 0 && new_input.message[18] <= 255); \n\
+		__CPROVER_assume(new_input.message[19] >= 0 && new_input.message[19] <= 255); \n\
+		__CPROVER_assume(new_input.message[20] >= 0 && new_input.message[20] <= 255); \n\
+		__CPROVER_assume(new_input.message[21] >= 0 && new_input.message[21] <= 255); \n\
+		__CPROVER_assume(new_input.message[22] >= 0 && new_input.message[22] <= 255); \n\
+		__CPROVER_assume(new_input.message[23] >= 0 && new_input.message[23] <= 255); \n\
+		__CPROVER_assume(new_input.message[24] >= 0 && new_input.message[24] <= 255); \n\
+		__CPROVER_assume(new_input.message[25] >= 0 && new_input.message[25] <= 255); \n\
+		__CPROVER_assume(new_input.message[26] >= 0 && new_input.message[26] <= 255); \n\
+		__CPROVER_assume(new_input.message[27] >= 0 && new_input.message[27] <= 255); \n\
+		__CPROVER_assume(new_input.message[28] >= 0 && new_input.message[28] <= 255); \n\
+		__CPROVER_assume(new_input.message[29] >= 0 && new_input.message[29] <= 255); \n\
 		")
 
 	f.write("\
 		printf(\"OUTPUT: %d " + " ".join(targetExprs) + "\\n\",						\n\
-			state.motor_direction_status," + ','.join(targetNamesOutput) + ");			\n")
+			state.fail_status," + ','.join(targetNamesOutput) + ");			\n")
 	f.write("\
 		printf(\"OUTPUT: %d " + " ".join(targetExprs) + "\\n\",						\n\
-			rt_state.motor_direction_status," + ','.join(targetNamesRTStructed) + ");			\n")
+			rt_state.fail_status," + ','.join(targetNamesRTStructed) + ");			\n")
 
 	predicates = {}
 	for pred in s2_out_p:
@@ -390,7 +544,7 @@ def gen_check_init_proof(s2_out_p):
 			f.write("		assert(")
 			for i in range(len(next_states_not_pred)):
 				s = next_states_not_pred[i]
-				v_str = 'rt_state.motor_direction_status == ' + s
+				v_str = 'rt_state.fail_status == ' + s
 				f.write("(" + v_str + ")")
 				if i != len(next_states_not_pred)-1:
 					f.write(" || ")
@@ -403,6 +557,7 @@ def gen_check_init_proof(s2_out_p):
 			predicates[x] = predicates[x].replace('not ','!')
 			predicates[x] = predicates[x].replace('rt_input','input')
 			predicates[x] = predicates[x].replace('prev_state','state')
+			predicates[x] = predicates[x].replace('rt_state','state')
 
 			## Array interest variable processing (Hyobin)
 			pred_vars = list(np.unique(re.findall(r"[a-zA-Z_][a-zA-Z0-9_]*", predicates[x])))
@@ -412,7 +567,7 @@ def gen_check_init_proof(s2_out_p):
 				predicates[x] = predicates[x].replace(targetConvertedNames[i], targetNames[i])
 
 			f.write("		if (" + predicates[x] + ")\n")
-			v_str = 'rt_state.motor_direction_status == ' + x
+			v_str = 'rt_state.fail_status == ' + x
 			f.write("		{	assert(" + v_str + ");\n")
 			f.write("			found = true;}\n")
 
@@ -423,7 +578,7 @@ def gen_check_init_proof(s2_out_p):
 			f.write("			assert(")
 			for i in range(len(next_states_not_pred)):
 				s = next_states_not_pred[i]
-				v_str = 'rt_state.motor_direction_status == ' + s
+				v_str = 'rt_state.fail_status == ' + s
 				f.write("(" + v_str + ")")
 				if i != len(next_states_not_pred)-1:
 					f.write(" || ")
@@ -553,7 +708,7 @@ def get_trace_n_trace_events(e_file):
 		t_list = data[trace_ind[i]+1:trace_ind[i+1]]
 		trace_events.append(t_list)
 		## initial state definition
-		temp = ['Straight']
+		temp = ['NO_ACTIVE']
 		[temp.append(x.split(': ')[1]) if len(x.split(': '))>1 else temp.append(x.split(': ')[0]) for x in t_list]
 		trace.append(temp)
 	return trace, trace_events
@@ -564,17 +719,18 @@ all_valid_traces_file = sys.argv[2]
 assumptions_file = all_valid_traces_file.replace('valid','ass')
 
 ## assume value assign part ([original] types.txt [modification] spec.txt)
-targetLen = 7
-targetNames = ["motor_speed_status", "motor_speed[0]", "motor_speed[1]", "obsDistance[0]", "obsDistance[1]", "obsDistance[2]", "obsDistance[3]"]
-targetTypes = ["state", "state", "state", "input", "input", "input", "input"]
-targetExprs = ["%d", "%d", "%d", "%d", "%d", "%d", "%d"]
-topElement = ["motor_speed_status", "motor_speed[0]", "motor_speed[1]", "obsDistance[0]", "obsDistance[1]", "obsDistance[2]", "obsDistance[3]"]
+targetLen = 39
+targetNames = ["packetStartByte", "packetEndByte", "contentsStartByte", "contentsEndByte", "message[0]", "message[1]", "message[2]", "message[3]", "message[4]", "message[5]", "message[6]", "message[7]", "message[8]", "message[9]", "message[10]", "message[11]", "message[12]", "message[13]", "message[14]", "message[15]", "message[16]", "message[17]", "message[18]", "message[19]", "message[20]", "message[21]", "message[22]", "message[23]", "message[24]", "message[25]", "message[26]", "message[27]", "message[28]", "message[29]", "eqms_protocol._failed", "PACKAGE_START_BYTE_VALUE", "PACKAGE_END_BYTE_VALUE", "CONTENTS_START_BYTE_VALUE", "CONTENTS_END_BYTE_VALUE"]
+targetTypes = ["state", "state", "state", "state", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "input", "output", "const", "const", "const", "const"]
+targetExprs = ["%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d", "%d"]
+topElement = ["packetStartByte", "packetEndByte", "contentsStartByte", "contentsEndByte", "message[0]", "message[1]", "message[2]", "message[3]", "message[4]", "message[5]", "message[6]", "message[7]", "message[8]", "message[9]", "message[10]", "message[11]", "message[12]", "message[13]", "message[14]", "message[15]", "message[16]", "message[17]", "message[18]", "message[19]", "message[20]", "message[21]", "message[22]", "message[23]", "message[24]", "message[25]", "message[26]", "message[27]", "message[28]", "message[29]", "eqms_protocol._failed", "PACKAGE_START_BYTE_VALUE", "PACKAGE_END_BYTE_VALUE", "CONTENTS_START_BYTE_VALUE", "CONTENTS_END_BYTE_VALUE"]
+bottomElement = []
 targetConvertedNames = [name.replace("[", "_").replace("]","") for name in targetNames]
 ## targetNamesStructed = [targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
-targetNamesOutput = [("" if targetNames[i] in topElement else "rt_") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
-targetNamesRTStructed = [("new_" if targetTypes[i] == "input" else "rt_") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
-targetNamesStructedforProp = [("" if targetNames[i] in topElement else "rt_") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
-targetNamesPrevStructed = [("prev_" if targetNames[i] in topElement else "") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
+targetNamesOutput = [targetNames[i] if targetTypes[i] == "const" else ("" if targetNames[i] in topElement else "rt_") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
+targetNamesRTStructed = [targetNames[i] if targetTypes[i] == "const" else ("new_" if targetTypes[i] == "input" else "rt_") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
+targetNamesStructedforProp = [targetNames[i] if targetTypes[i] == "const" else ("" if targetNames[i] in topElement else "rt_") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
+targetNamesPrevStructed = [targetNames[i] if targetTypes[i] == "const" else ("prev_" if targetNames[i] in topElement else "") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
 targetProp = [targetNamesStructedforProp[i] + "==" + targetExprs[i] for i in range(targetLen)]
 targetAssume = [targetNamesPrevStructed[i] + "==" + targetExprs[i] for i in range(targetLen)]
 ## assume value assign part Finish

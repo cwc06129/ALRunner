@@ -25,18 +25,16 @@ import syntax.statement.SwitchStatement;
 import udbparser.udbrawdata.UdbLexemeNode;
 
 public class NewFunctionCFGPrinter {
-	private boolean flag_els = false;
+    private boolean flag_els = false;
     private SourceCode code;
-    
+
     public void printFunction2(Function function) {
-    	code = new SourceCode();
-//	    	string들을 담을 변수를 누가 갖고 있는지 고려 후 작성하도록 하기
-    	
+        code = new SourceCode();
+
         if (((CompoundStatement) function.getBody()).getFirst().getNext() instanceof NullStatement) {
-            System.out.println(function.toString() +";");
+            System.out.println(function.toString() + ";");
             code.addCode(function.toString() + ";");
-        }
-        else {
+        } else {
             System.out.println(function.toString() + " {");
             code.addCode(function.toString() + " {");
             Statement stmt = (CompoundStatement) function.getBody();
@@ -45,38 +43,56 @@ public class NewFunctionCFGPrinter {
             code.addCode("}\n");
         }
     }
-    
+
     public SourceCode getCode() {
-		return code;
-	}
-
-	public void setCode(SourceCode code) {
-		this.code = code;
-	}
-
-	public void printStatement2(Statement stmt) {
-        if (stmt instanceof CompoundStatement) { printCompoundStatement2((CompoundStatement) stmt); }
-        else if (stmt instanceof ExpressionStatement) { printExpressionStatement2((ExpressionStatement) stmt); }
-        else if (stmt instanceof DeclarationStatement) { printDeclarationStatement2((DeclarationStatement) stmt); } 
-        else if (stmt instanceof PseudoStatement) { printPseudoStatement2((PseudoStatement) stmt); } 
-        else if (stmt instanceof IfStatement) { printIfStatement2((IfStatement) stmt); } 
-        else if (stmt instanceof GotoStatement) { printGotoStatement2((GotoStatement) stmt); } 
-        else if (stmt instanceof LabelStatement) { printLabelStatement2((LabelStatement) stmt); } 
-        else if (stmt instanceof ForStatement) { printForStatement2((ForStatement) stmt); } 
-        else if (stmt instanceof DoStatement) { printDoStatement2((DoStatement) stmt); } 
-        else if (stmt instanceof LoopStatement) { printLoopStatement2((LoopStatement) stmt); } 
-        else if (stmt instanceof SwitchStatement) { printSwitchStatement2((SwitchStatement) stmt); } 
-        else if (stmt instanceof CaseStatement) { printCaseStatement2((CaseStatement) stmt); } 
-        else if (stmt instanceof DefaultStatement) { printDefaultStatement2((DefaultStatement) stmt); } 
-        else if (stmt instanceof ContinueStatement) { printContinueStatement2((ContinueStatement) stmt); } 
-        else if (stmt instanceof BreakStatement) { printBreakStatement2((BreakStatement) stmt); } 
-        else if (stmt instanceof ReturnStatement) { printReturnStatement2((ReturnStatement) stmt); }
-        else if (stmt instanceof ExitStatement) { printExitStatement2((ExitStatement) stmt); }
+        return code;
     }
 
-	public void printCompoundStatement2(CompoundStatement stmt) {
-        for(Statement s: stmt.getBody()) { 
-        	printStatement2(s); 
+    public void setCode(SourceCode code) {
+        this.code = code;
+    }
+
+    public void printStatement2(Statement stmt) {
+        if (stmt instanceof CompoundStatement) {
+            printCompoundStatement2((CompoundStatement) stmt);
+        } else if (stmt instanceof ExpressionStatement) {
+            printExpressionStatement2((ExpressionStatement) stmt);
+        } else if (stmt instanceof DeclarationStatement) {
+            printDeclarationStatement2((DeclarationStatement) stmt);
+        } else if (stmt instanceof PseudoStatement) {
+            printPseudoStatement2((PseudoStatement) stmt);
+        } else if (stmt instanceof IfStatement) {
+            printIfStatement2((IfStatement) stmt);
+        } else if (stmt instanceof GotoStatement) {
+            printGotoStatement2((GotoStatement) stmt);
+        } else if (stmt instanceof LabelStatement) {
+            printLabelStatement2((LabelStatement) stmt);
+        } else if (stmt instanceof ForStatement) {
+            printForStatement2((ForStatement) stmt);
+        } else if (stmt instanceof DoStatement) {
+            printDoStatement2((DoStatement) stmt);
+        } else if (stmt instanceof LoopStatement) {
+            printLoopStatement2((LoopStatement) stmt);
+        } else if (stmt instanceof SwitchStatement) {
+            printSwitchStatement2((SwitchStatement) stmt);
+        } else if (stmt instanceof CaseStatement) {
+            printCaseStatement2((CaseStatement) stmt);
+        } else if (stmt instanceof DefaultStatement) {
+            printDefaultStatement2((DefaultStatement) stmt);
+        } else if (stmt instanceof ContinueStatement) {
+            printContinueStatement2((ContinueStatement) stmt);
+        } else if (stmt instanceof BreakStatement) {
+            printBreakStatement2((BreakStatement) stmt);
+        } else if (stmt instanceof ReturnStatement) {
+            printReturnStatement2((ReturnStatement) stmt);
+        } else if (stmt instanceof ExitStatement) {
+            printExitStatement2((ExitStatement) stmt);
+        }
+    }
+
+    public void printCompoundStatement2(CompoundStatement stmt) {
+        for (Statement s : stmt.getBody()) {
+            printStatement2(s);
         }
     }
 
@@ -85,27 +101,28 @@ public class NewFunctionCFGPrinter {
         code.addCode(printBlank(stmt.getParents().size() + 1) + printLexemeData(stmt.getRawData()));
     }
 
-    public void printDeclarationStatement2(DeclarationStatement stmt){
+    public void printDeclarationStatement2(DeclarationStatement stmt) {
         System.out.println(printBlank(stmt.getParents().size() + 1) + printLexemeData(stmt.getRawData()));
         code.addCode(printBlank(stmt.getParents().size() + 1) + printLexemeData(stmt.getRawData()));
     }
 
     public void printExitStatement2(ExitStatement stmt) {
-    	System.out.println(printBlank(stmt.getParents().size() + 1) + printLexemeData(stmt.getRawData()));
+        System.out.println(printBlank(stmt.getParents().size() + 1) + printLexemeData(stmt.getRawData()));
         code.addCode(printBlank(stmt.getParents().size() + 1) + printLexemeData(stmt.getRawData()));
-	}
-    
-    public void printPseudoStatement2(PseudoStatement stmt) {}
+    }
+
+    public void printPseudoStatement2(PseudoStatement stmt) {
+    }
 
     public void printIfStatement2(IfStatement stmt) {
         if (flag_els) {
             System.out.println("if " + printLexemeData(stmt.getRawData()) + " {");
             code.addCode("if " + printLexemeData(stmt.getRawData()) + " {");
             flag_els = false;
-        }
-        else {
-        	System.out.println(printBlank(stmt.getParents().size() + 1) + "if " + printLexemeData(stmt.getRawData()) + " {");
-        	code.addCode(printBlank(stmt.getParents().size() + 1) + "if " + printLexemeData(stmt.getRawData()) + " {");
+        } else {
+            System.out.println(
+                    printBlank(stmt.getParents().size() + 1) + "if " + printLexemeData(stmt.getRawData()) + " {");
+            code.addCode(printBlank(stmt.getParents().size() + 1) + "if " + printLexemeData(stmt.getRawData()) + " {");
         }
         printStatement2(stmt.getThen());
         System.out.println(printBlank(stmt.getParents().size() + 1) + "}");
@@ -116,8 +133,7 @@ public class NewFunctionCFGPrinter {
                 System.out.print(printBlank(stmt.getParents().size() + 1) + "else ");
                 code.addCode(printBlank(stmt.getParents().size() + 1) + "else ");
                 printStatement2(stmt.getEls());
-            }
-            else {
+            } else {
                 System.out.println(printBlank(stmt.getParents().size() + 1) + "else {");
                 code.addCode(printBlank(stmt.getParents().size() + 1) + "else {");
                 printStatement2(stmt.getEls());
@@ -128,17 +144,19 @@ public class NewFunctionCFGPrinter {
     }
 
     public void printGotoStatement2(GotoStatement stmt) {
-        System.out.println(printBlank(stmt.getParents().size() + 1) + "goto " + printLexemeData(stmt.getRawData()) + ";");
+        System.out
+                .println(printBlank(stmt.getParents().size() + 1) + "goto " + printLexemeData(stmt.getRawData()) + ";");
         code.addCode(printBlank(stmt.getParents().size() + 1) + "goto " + printLexemeData(stmt.getRawData()) + ";");
     }
 
-    public void printLabelStatement2(LabelStatement stmt){
+    public void printLabelStatement2(LabelStatement stmt) {
         System.out.println(printLexemeData(stmt.getRawData()) + ":");
         code.addCode(printLexemeData(stmt.getRawData()) + ":");
     }
 
     public void printForStatement2(ForStatement stmt) {
-        System.out.println(printBlank(stmt.getParents().size() + 1) + "for " + printLexemeData(stmt.getRawData()) + " {");
+        System.out
+                .println(printBlank(stmt.getParents().size() + 1) + "for " + printLexemeData(stmt.getRawData()) + " {");
         code.addCode(printBlank(stmt.getParents().size() + 1) + "for " + printLexemeData(stmt.getRawData()) + " {");
         printStatement2(stmt.getThen());
         System.out.println(printBlank(stmt.getParents().size() + 1) + "}");
@@ -149,12 +167,14 @@ public class NewFunctionCFGPrinter {
         System.out.println(printBlank(stmt.getParents().size() + 1) + "do {");
         code.addCode(printBlank(stmt.getParents().size() + 1) + "do {");
         printStatement2(stmt.getThen());
-        System.out.println(printBlank(stmt.getParents().size() + 1) + "} while " + printLexemeData(stmt.getRawData()) + ";");
+        System.out.println(
+                printBlank(stmt.getParents().size() + 1) + "} while " + printLexemeData(stmt.getRawData()) + ";");
         code.addCode(printBlank(stmt.getParents().size() + 1) + "} while " + printLexemeData(stmt.getRawData()) + ";");
     }
 
     public void printLoopStatement2(LoopStatement stmt) {
-        System.out.println(printBlank(stmt.getParents().size() + 1) + "while " + printLexemeData(stmt.getRawData()) + " {");
+        System.out.println(
+                printBlank(stmt.getParents().size() + 1) + "while " + printLexemeData(stmt.getRawData()) + " {");
         code.addCode(printBlank(stmt.getParents().size() + 1) + "while " + printLexemeData(stmt.getRawData()) + " {");
         printStatement2(stmt.getThen());
         System.out.println(printBlank(stmt.getParents().size() + 1) + "}");
@@ -162,9 +182,12 @@ public class NewFunctionCFGPrinter {
     }
 
     public void printSwitchStatement2(SwitchStatement stmt) {
-        System.out.println(printBlank(stmt.getParents().size() + 1) + "switch " + printLexemeData(stmt.getRawData()) + " {");
+        System.out.println(
+                printBlank(stmt.getParents().size() + 1) + "switch " + printLexemeData(stmt.getRawData()) + " {");
         code.addCode(printBlank(stmt.getParents().size() + 1) + "switch " + printLexemeData(stmt.getRawData()) + " {");
-        for (CaseStatement caseStmt: stmt.getCases()) { printStatement2(caseStmt); }
+        for (CaseStatement caseStmt : stmt.getCases()) {
+            printStatement2(caseStmt);
+        }
         if (!(stmt.getDefaultStatement().getBody() instanceof NullStatement)) {
             System.out.println(printBlank(stmt.getParents().size() + 1) + "default:");
             code.addCode(printBlank(stmt.getParents().size() + 1) + "default:");
@@ -186,12 +209,12 @@ public class NewFunctionCFGPrinter {
         printStatement2(stmt.getBody());
     }
 
-    public void printContinueStatement2(ContinueStatement stmt){
+    public void printContinueStatement2(ContinueStatement stmt) {
         System.out.println(printBlank(stmt.getParents().size() + 1) + printLexemeData(stmt.getRawData()) + ";");
         code.addCode(printBlank(stmt.getParents().size() + 1) + printLexemeData(stmt.getRawData()) + ";");
     }
 
-    public void printBreakStatement2(BreakStatement stmt){
+    public void printBreakStatement2(BreakStatement stmt) {
         System.out.println(printBlank(stmt.getParents().size() + 1) + printLexemeData(stmt.getRawData()) + ";");
         code.addCode(printBlank(stmt.getParents().size() + 1) + printLexemeData(stmt.getRawData()) + ";");
     }
@@ -202,21 +225,21 @@ public class NewFunctionCFGPrinter {
     }
 
     public void printFunctionBody(Function f) {
-    	CompoundStatement body = new CompoundStatement();
-    	body = (CompoundStatement) f.getBody();
-    	
-    	for(Statement stmt : body.getBody()) {
-    		System.out.println("this is body : " + stmt);
-    	}
+        CompoundStatement body = new CompoundStatement();
+        body = (CompoundStatement) f.getBody();
+
+        for (Statement stmt : body.getBody()) {
+            System.out.println("this is body : " + stmt);
+        }
     }
-    
+
     public void printCFG2(Function f) {
         CompoundStatement body = new CompoundStatement();
         body = (CompoundStatement) f.getBody();
 
         for (Statement stmt : body.getBody()) {
             System.out.print(stmt + "\n\tnext: ");
-            
+
             if (stmt instanceof IfStatement) {
                 if (((IfStatement) stmt).getThen() instanceof CompoundStatement) {
                     System.out.print(
@@ -273,13 +296,17 @@ public class NewFunctionCFGPrinter {
 
     public String printLexemeData(ArrayList<UdbLexemeNode> lexs) {
         String str = "";
-        for (UdbLexemeNode lex : lexs) { str = str + lex.getData(); }
+        for (UdbLexemeNode lex : lexs) {
+            str = str + lex.getData();
+        }
         return str;
     }
 
     public String printBlank(int i) {
         String blank = "";
-        for (int c = 0; c < i; c++) { blank = blank + "\t";	}
+        for (int c = 0; c < i; c++) {
+            blank = blank + "\t";
+        }
         return blank;
     }
 }

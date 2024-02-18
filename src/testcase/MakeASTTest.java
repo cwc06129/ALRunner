@@ -22,7 +22,6 @@ import traverse.general.ForwardCfgTraverser;
 import udbparser.udbrawdata.UdbLexemeNode;
 import udbparser.usingperl.UdbInfoRetriever;
 
-
 public class MakeASTTest {
 	private static ArrayList<Function> functions;
 	private static Stack<String[]> upStack;
@@ -33,72 +32,66 @@ public class MakeASTTest {
 	public static void main(String[] args) throws InterruptedException, IOException {
 		UdbInfoRetriever udbInfoRetriever = new UdbInfoRetriever();
 
-		String srcPath = "./src/ALautomation/code/cdplayer/cdplayer.c";//crowdquake/crowdquake.c";//Test_Example/projector_AL/model.c";//hlsimple.c";//Test_Example/projector_AL/model.c";//collision_avoidance.c";
+		String srcPath = "./src/ALautomation/code/cdplayer/cdplayer.c";// crowdquake/crowdquake.c";//Test_Example/projector_AL/model.c";//hlsimple.c";//Test_Example/projector_AL/model.c";//collision_avoidance.c";
 
-		udbInfoRetriever.makeFunctionsFromUDB(srcPath); //Perl -> Lexeme & Variable print
+		udbInfoRetriever.makeFunctionsFromUDB(srcPath); // Perl -> Lexeme & Variable print
 
 		setFunctions(udbInfoRetriever.getFunctions());
 		setCallGraph(makeCallGraph(functions));
-		printCallGraph(getCallGraph()); //Caller Callee 출력
+		printCallGraph(getCallGraph()); // Caller Callee 출력
 
 		HashMap<Function, Integer> numberOfParam = new HashMap<Function, Integer>();
-		HashMap<Function, Boolean> typeOfFunc = new HashMap<Function, Boolean>(); //chl@2023.02.17 - check for function type
-		for (Function f : getFunctions()) { //f: add, main, div, sub, multiple, etc.
+		HashMap<Function, Boolean> typeOfFunc = new HashMap<Function, Boolean>(); // chl@2023.02.17 - check for function
+																					// type
+		for (Function f : getFunctions()) { // f: add, main, div, sub, multiple, etc.
 			if (f.getParameters() == null)
 				numberOfParam.put(f, 0);
 			else
 				numberOfParam.put(f, f.getParameters().size());
 			typeOfFunc.put(f, f.returnLibraryType());
 		}
-		System.out.println(numberOfParam); //including f from above for loop
-		
-
+		System.out.println(numberOfParam); // including f from above for loop
 
 		ArrayList<String> defines = new ArrayList<String>();
-		for (Define d : udbInfoRetriever.getDefines()){//chl@2023.02.23 - define list make
+		for (Define d : udbInfoRetriever.getDefines()) {// chl@2023.02.23 - define list make
 			defines.add(d.getName());
 		}
 
-		
-		/*chl@2023.02.08 - Expression make*/
-		ExprTraverser exprtrav = new ExprTraverser(numberOfParam, typeOfFunc, defines); 
-		//CodeFromStmtTraverser dfscode = new CodeFromStmtTraverser();
+		/* chl@2023.02.08 - Expression make */
+		ExprTraverser exprtrav = new ExprTraverser(numberOfParam, typeOfFunc, defines);
+		// CodeFromStmtTraverser dfscode = new CodeFromStmtTraverser();
 		System.out.println("Expression assignment Taverse: ");
-		for(Function f : getFunctions()) {
-			/*chl@2023.02.08 - Expression make*/
+		for (Function f : getFunctions()) {
+			/* chl@2023.02.08 - Expression make */
 			System.out.println(f);
 			exprtrav.traverse(f);
-			//dfscode.traverse(f);
+			// dfscode.traverse(f);
 			System.out.println();
 		}
 		System.out.println();
-		
-		
-		
-		
-  		/*chl@2023.02.08 - cfg traverse*/
+
+		/* chl@2023.02.08 - cfg traverse */
 		ForwardCfgTraverser testcfg = new ForwardCfgTraverser();
-		for(Function f : getFunctions()) {
+		for (Function f : getFunctions()) {
 			System.out.println("Statement Traverse: ");
-			
+
 			testcfg.traverse(f);
 			System.out.println();
 		}
-		
-		
-		/*chl@2023.02.08 - code print*/
-		//CodeFromStmtTraverser dfscode = new CodeFromStmtTraverser();
+
+		/* chl@2023.02.08 - code print */
+		// CodeFromStmtTraverser dfscode = new CodeFromStmtTraverser();
 		System.out.println("Make Code Traverse: ");
 
-		for (Include i : udbInfoRetriever.getHeaders()){//chl@2023.02.23 - include print
+		for (Include i : udbInfoRetriever.getHeaders()) {// chl@2023.02.23 - include print
 			System.out.println(i.getRawdata());
 		}
 		System.out.println();
-		for (Define d : udbInfoRetriever.getDefines()){//chl@2023.02.23 - define print
+		for (Define d : udbInfoRetriever.getDefines()) {// chl@2023.02.23 - define print
 			System.out.println(d.getRawdata());
 		}
 		System.out.println();
-		for (DeclarationStatement s : udbInfoRetriever.getGlobals()){//chl@2023.02.23 - global variable print
+		for (DeclarationStatement s : udbInfoRetriever.getGlobals()) {// chl@2023.02.23 - global variable print
 			s.setExpression(numberOfParam, typeOfFunc, defines);
 			CodeFromStmtTraverser test = new CodeFromStmtTraverser();
 			test.traverse(s);
@@ -106,11 +99,11 @@ public class MakeASTTest {
 		System.out.println();
 
 		CodeFromStmtTraverser dfscode = new CodeFromStmtTraverser();
-		for(Function f : getFunctions()) {			
+		for (Function f : getFunctions()) {
 			dfscode.traverse(f);
 			System.out.println();
 		}
-		
+
 	}
 
 	public static ArrayList<String> findCaller(String callee) {
@@ -121,7 +114,7 @@ public class MakeASTTest {
 		while (itr.hasNext()) {
 			Map.Entry<String, ArrayList<String>> e = (Map.Entry<String, ArrayList<String>>) itr.next();
 			if (e.getKey().equals(callee))
-				continue; 
+				continue;
 			ArrayList<String> values = e.getValue();
 			if (values.size() == 0) {
 				continue;
@@ -254,11 +247,11 @@ public class MakeASTTest {
 			}
 			printFlag = false;
 
-//         try {
-//            Thread.sleep(1000);
-//         } catch (InterruptedException ex) {
-//            //
-//         }
+			// try {
+			// Thread.sleep(1000);
+			// } catch (InterruptedException ex) {
+			// //
+			// }
 
 			/* 5. Find next Node(Statement) */
 			if (traverseStack.empty())
@@ -361,15 +354,16 @@ public class MakeASTTest {
 					continue;
 				}
 
-//				//find kind of Call( UserDefined or Library)
-//	            ExpressionStatement estmt = (ExpressionStatement) stmt;
-//	
-//	            String typeOfStmt;
-//	            if (estmt.getExpression() instanceof UserDefinedCallExpression) { //instanceof UserDefinedCall
-//	               typeOfStmt = "UserDefinedCall";
-//	            } else { // instanceof LibraryCall
-//	               typeOfStmt = "LibraryCall";
-//	            }
+				// //find kind of Call( UserDefined or Library)
+				// ExpressionStatement estmt = (ExpressionStatement) stmt;
+				//
+				// String typeOfStmt;
+				// if (estmt.getExpression() instanceof UserDefinedCallExpression) {
+				// //instanceof UserDefinedCall
+				// typeOfStmt = "UserDefinedCall";
+				// } else { // instanceof LibraryCall
+				// typeOfStmt = "LibraryCall";
+				// }
 
 				// add Call to value list
 

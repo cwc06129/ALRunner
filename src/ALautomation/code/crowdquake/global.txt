@@ -1,0 +1,22 @@
+// enumeration
+>> enum : fail_status {NO_ACTIVE, FAIL, SUCCESS}
+// struct
+>> struct name : _EQMSProtocol EQMSProtocol
+>> struct element start
+unsigned char PACKAGE_START_BYTE;
+unsigned char PACKAGE_END_BYTE;
+unsigned char CONTENTS_START_BYTE;
+unsigned char CONTENTS_END_BYTE;
+unsigned char EQMS_TYPE_ACC;
+unsigned char EQMS_TYPE_ENV;
+unsigned char EQMS_TYPE_AIR;
+unsigned char* _buf;
+size_t _buf_length;
+int _parse_stage;
+int _current_packet_usim;
+int _expected_length;
+int _inbound_bytes;
+int _processed_msg;
+int _failed;
+int _success;
+>> struct element finish

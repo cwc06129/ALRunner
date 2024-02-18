@@ -1,3 +1,4 @@
+#pragma once
 #ifndef _ENUM_DEFINE
 //enum information
 typedef enum _Direction_status {Straight, Turn_left, Turn_right} Direction_status;

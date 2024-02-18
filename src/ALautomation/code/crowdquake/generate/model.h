@@ -1,3 +1,4 @@
+#pragma once
 #ifndef _ENUM_DEFINE
 //enum information
 typedef enum _Fail_status {NO_ACTIVE, FAIL, SUCCESS} Fail_status;
@@ -30,6 +31,7 @@ typedef struct {
 typedef struct {
 	Fail_status fail_status;
 	int contentsStartByte;
+	EQMSProtocol eqms_protocol;
 	int packetStartByte;
 	int packetEndByte;
 	int contentsEndByte;

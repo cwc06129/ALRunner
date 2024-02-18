@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "ecrobot_interface.h": "c",
-        "model.h": "c"
-    }
-}

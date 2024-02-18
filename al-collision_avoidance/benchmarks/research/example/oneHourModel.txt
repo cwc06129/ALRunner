@@ -1,4 +1,0 @@
-time checking : 2.986508369445801
-old_model_file : model0
-new_model_file : model1
-

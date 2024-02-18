@@ -4228,10 +4228,12 @@ public class ModelConstructor {
             exprtrav.traverse(f);
         }
 
-        // 3. spec.txt file parsing
+        // 3. text file parsing 
+        // 3-1. spec.txt file parsing
         modelConstructor.parseTxtInfo("./src/ALautomation/code/" + filename + "/spec.txt",
                 udbInfoRetriever.getVariables());
 
+        // 3-2. global.txt file parsing
         modelConstructor.parseTxtInfo("./src/ALautomation/code/" + filename + "/global.txt",
                 udbInfoRetriever.getVariables());
 

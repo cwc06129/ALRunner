@@ -1,3 +1,4 @@
+#pragma once
 #ifndef _ENUM_DEFINE
 //enum information
 typedef enum _MICRO_STATE {Waiting, FullPower, HalfPower, SetTime, Enabled, Disabled, Operation} MICRO_STATE;
@@ -5,14 +6,15 @@ typedef enum _EVENT {None, full, half, openDoor, cancel, timer, closeDoor, Start
 #define _ENUM_DEFINE
 #endif
 
+
 typedef struct {
-    EVENT event;
-    int micro_time;
+	EVENT event;
+	int micro_time;
 } INPUT;
 
 typedef struct {
-    MICRO_STATE micro_state;
-    int micro_time;
+	int micro_time;
+	MICRO_STATE micro_state;
 } STATE;
 
 typedef struct {

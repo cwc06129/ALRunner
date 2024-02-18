@@ -158,6 +158,7 @@ def generate_assume_assert(s1_in_p, pred, s2_out_p, assumptions):
 			predicates[x] = predicates[x].replace('not ','!')
 			predicates[x] = predicates[x].replace('rt_input','input')
 			predicates[x] = predicates[x].replace('prev_state','state')
+			predicates[x] = predicates[x].replace('rt_state','state')
 
 			## Array interest variable processing (Hyobin)
 			pred_vars = list(np.unique(re.findall(r"[a-zA-Z_][a-zA-Z0-9_]*", predicates[x])))
@@ -386,6 +387,7 @@ def gen_check_init_proof(s2_out_p):
 			predicates[x] = predicates[x].replace('not ','!')
 			predicates[x] = predicates[x].replace('rt_input','input')
 			predicates[x] = predicates[x].replace('prev_state','state')
+			predicates[x] = predicates[x].replace('rt_state','state')
 
 			## Array interest variable processing (Hyobin)
 			pred_vars = list(np.unique(re.findall(r"[a-zA-Z_][a-zA-Z0-9_]*", predicates[x])))
@@ -552,12 +554,13 @@ targetNames = ["micro_time", "micro_time", "event"]
 targetTypes = ["state", "input", "input"]
 targetExprs = ["%d", "%d", "%d"]
 topElement = ["micro_time", "micro_time", "event"]
+bottomElement = []
 targetConvertedNames = [name.replace("[", "_").replace("]","") for name in targetNames]
 ## targetNamesStructed = [targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
-targetNamesOutput = [("" if targetNames[i] in topElement else "rt_") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
-targetNamesRTStructed = [("new_" if targetTypes[i] == "input" else "rt_") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
-targetNamesStructedforProp = [("" if targetNames[i] in topElement else "rt_") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
-targetNamesPrevStructed = [("prev_" if targetNames[i] in topElement else "") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
+targetNamesOutput = [targetNames[i] if targetTypes[i] == "const" else ("" if targetNames[i] in topElement else "rt_") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
+targetNamesRTStructed = [targetNames[i] if targetTypes[i] == "const" else ("new_" if targetTypes[i] == "input" else "rt_") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
+targetNamesStructedforProp = [targetNames[i] if targetTypes[i] == "const" else ("" if targetNames[i] in topElement else "rt_") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
+targetNamesPrevStructed = [targetNames[i] if targetTypes[i] == "const" else ("prev_" if targetNames[i] in topElement else "") + targetTypes[i] + "." + targetNames[i] for i in range(targetLen)]
 targetProp = [targetNamesStructedforProp[i] + "==" + targetExprs[i] for i in range(targetLen)]
 targetAssume = [targetNamesPrevStructed[i] + "==" + targetExprs[i] for i in range(targetLen)]
 ## assume value assign part Finish

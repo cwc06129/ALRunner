@@ -6,6 +6,3 @@ micro_time state 0,9
 >> key : micro_state state 0,6
 // target function name
 >> func : main
-//enumeration
->> enum : micro_state {Waiting, FullPower, HalfPower, SetTime, Enabled, Disabled, Operation}
->> enum : event {None, full, half, openDoor, cancel, timer, closeDoor, StartPress}

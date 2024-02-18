@@ -1,0 +1,3 @@
+//enumeration
+>> enum : micro_state {Waiting, FullPower, HalfPower, SetTime, Enabled, Disabled, Operation}
+>> enum : event {None, full, half, openDoor, cancel, timer, closeDoor, StartPress}

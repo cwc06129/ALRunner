@@ -31,9 +31,9 @@ int micro_time = 0;
 int power = 0;
 
 int main() {
-    srand(time(NULL));
+    // srand(time(NULL));
 
-    while(true) {
+    // while(true) {
         event = rand() % 4;
 
         if(event == full) {
@@ -69,5 +69,5 @@ int main() {
                 }
             }
         }        
-    }
+    // }
 }

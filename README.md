@@ -1,4 +1,4 @@
-# AL Runner (using CATS)
+# AL Runner (using CATS) - version 1
 능동 학습 도구 적용의 자동화를 위한 코드
 
 ## 실행 요구 사항
@@ -17,7 +17,7 @@ Understand 설치 시, path 자동 설정을 체크했다면 별도로 설정할
   * 능동 학습 적용을 위한 원본 C 코드 및 헤더 파일은 ALautomation/code 디렉토리 안에 저장되어야 한다.
   * 만약 filename이 'test'라면, ALautomation/code/test 디렉토리가 필요하고, test 디렉토리 안에 test.c 파일이 존재해야 한다.
 
-### 2. spec.txt (입력 파일)
+### 2. spec.txt & global.txt (입력 파일)
 * spec.txt에 입력되어야 하는 내용 및 입력 형식
   * 관심 변수 리스트 (주 관심 변수 제외)
   ```plaintext
@@ -36,6 +36,7 @@ Understand 설치 시, path 자동 설정을 체크했다면 별도로 설정할
   ```plaintext
   >> func : {타겟 함수 이름}
   ```
+* global.txt에 입력되어야 하는 내용 및 입력 형식
   * 열거형 정보
   ```plaintext
   >> enum : {변수 이름} {열거 상수 나열 (ex.{enum1, enum2, enum3})}
@@ -50,7 +51,8 @@ Understand 설치 시, path 자동 설정을 체크했다면 별도로 설정할
   >> struct element finish **반드시 필요**
   ```
   
-* spec.txt example
+* spec.txt & global.txt example
+ * spec.txt example
 ```plaintext
 // interest variables
 packetStartByte state 0,255
@@ -63,6 +65,9 @@ message input 0,255 arr,30
 >> key : fail_status state 0,2
 // target function name
 >> func : main
+```
+ * global.txt example
+```plaintext
 // enumeration
 >> enum : fail_status {NO_ACTIVE, FAIL, SUCCESS}
 // struct
